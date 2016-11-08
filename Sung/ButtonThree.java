@@ -13,7 +13,7 @@ public class ButtonThree extends JFrame
 	public ButtonThree()
 	{
 		//제목 설정
-		super("제목");
+		super("위 상단 제목");
 
 		//레이아웃 설정
 		this.setLayout(new FlowLayout());
