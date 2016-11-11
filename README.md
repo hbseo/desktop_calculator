@@ -1,2 +1,6 @@
-# 계산기
--------------------------
+# **Welcome!**
+
+### Make a Calculator.
+
+* **members** : alchon, hellogaon
+*
