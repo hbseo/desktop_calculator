@@ -1,2 +1,9 @@
 [Java] 자바 GUI, 누른 키 값 확인 / KeyListener
 http://m.blog.naver.com/tkddlf4209/220599753497
+
+GUI 기초부터
+http://m.blog.naver.com/jwk123/100163563945
+
+awt/swing 배치관리자 [LayoutManager] - FlowLayout, GridLayout, BorderLayout, CardLayout, GridBagLayer  
+
+http://blog.naver.com/PostView.nhn?blogId=javaking75&logNo=140157948347
