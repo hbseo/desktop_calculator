@@ -35,7 +35,7 @@ To compile Serious, downloads Serious.class and open.
 
 
 # **Bugs & Feedback**
--------------
+
 To report bugs, please create a GitHub issue.  
 Email : gusqja8753@gmail.com
 
