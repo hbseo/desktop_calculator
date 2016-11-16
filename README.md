@@ -1,16 +1,14 @@
 # **Serious**
--------------------
+
 **Serious** 
 is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder , factorial,  and so on.
 
 # **Screenshots**
-------------
 
 
-# **Function** 
---------------
 
-Standard Function  
+# **Standard Function** 
+
 - **0~9** : NUMBER
 - **+** :  PLUS
 - **-** :  MINUS
@@ -25,14 +23,14 @@ Standard Function
 
 
 # Additional Function
-----------------
+
 - **AVG** : AVERAGE  
 - **!** : FACTORIAL  
 - **P** : DISTINTION PRIME NUMBER - RETURN TRUE OR FALSE  
 - **MOD** : REMAINDER
 
 # **Compiling**  
--------------------
+
 To compile Serious, downloads Serious.class and open.
 
 
