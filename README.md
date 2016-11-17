@@ -1,13 +1,16 @@
 # **Serious**
 
-**Serious** 
+**Serious**
 is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder , factorial,  and so on.
 
 # **Screenshots**
 
+=======
+# **Function**
+--------------
+>>>>>>> Stashed changes
 
-
-# **Standard Function** 
+# **Standard Function**
 
 - **0~9** : NUMBER
 - **+** :  PLUS
@@ -45,3 +48,6 @@ Email : gusqja8753@gmail.com
 
 
 
+=======
+Email : gusqja8753@gmail.com
+>>>>>>> Stashed changes
