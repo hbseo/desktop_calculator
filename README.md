@@ -1,13 +1,13 @@
 # **Serious**
 
-**Serious** 
+**Serious**
 is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder , factorial,  and so on.
 
 # **Screenshots**
 
+![](/Users/HB/Desktop/simpsons/Pictures/screenshot v0.1.png "")
 
-
-# **Standard Function** 
+# **Standard Function**
 
 - **0~9** : NUMBER
 - **+** :  PLUS
