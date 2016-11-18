@@ -7,3 +7,7 @@ http://m.blog.naver.com/jwk123/100163563945
 awt/swing 배치관리자 [LayoutManager] - FlowLayout, GridLayout, BorderLayout, CardLayout, GridBagLayer  
 
 http://blog.naver.com/PostView.nhn?blogId=javaking75&logNo=140157948347
+
+http://unikys.tistory.com/178
+
+https://opentutorials.org/module/987/7277
