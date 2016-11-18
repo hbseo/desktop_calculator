@@ -5,10 +5,14 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 # **Screenshots**
 
+<<<<<<< HEAD
 =======
 # **Function**
 --------------
 >>>>>>> Stashed changes
+=======
+![](http://imageshack.com/a/img923/6936/pLL3oX.png "")
+>>>>>>> master
 
 # **Standard Function**
 
@@ -41,6 +45,7 @@ To compile Serious, downloads Serious.class and open.
 
 To report bugs, please create a GitHub issue.  
 Email : gusqja8753@gmail.com
+<<<<<<< HEAD
 
 
 
@@ -51,3 +56,5 @@ Email : gusqja8753@gmail.com
 =======
 Email : gusqja8753@gmail.com
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
