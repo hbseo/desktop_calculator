@@ -1,15 +1,9 @@
-/**
- * Created by HB on 2016. 11. 13..
- */
-
-// v0.1
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-public class calculator extends JFrame {
+public class calculator extends JFrame implements ActionListener{
 
     JPanel panel;
     JButton [] num_btn = new JButton[10];
@@ -17,6 +11,7 @@ public class calculator extends JFrame {
         dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
         minusbtn, plusbtn, equalbtn, dotbtn;
     JTextField textField, textField2;
+    private String first="";
 
 
     // 생성자
@@ -103,6 +98,25 @@ public class calculator extends JFrame {
         AVGbtn.setBounds(160,120,80,60);
         factorialbtn.setBounds(240,120,80,60);
 
+        //addActionListener 추가
+        for (int i=0; i<10; i++)
+            num_btn[i].addActionListener(this);
+        dotbtn.addActionListener(this);
+        equalbtn.addActionListener(this);
+        plusbtn.addActionListener(this);
+        minusbtn.addActionListener(this);
+        percentbtn.addActionListener(this);
+        leftbracketbtn.addActionListener(this);
+        rightbracketbtn.addActionListener(this);
+        multiplebtn.addActionListener(this);
+        deletebtn.addActionListener(this);
+        clearbtn.addActionListener(this);
+        dividebtn.addActionListener(this);
+        Primebtn.addActionListener(this);
+        MODbtn.addActionListener(this);
+        AVGbtn.addActionListener(this);
+        factorialbtn.addActionListener(this);
+
         panel.add(dotbtn);
         panel.add(equalbtn);
         panel.add(plusbtn);
@@ -124,8 +138,14 @@ public class calculator extends JFrame {
         setVisible(true);
 
     }
-
-
+    public void actionPerformed(ActionEvent e){
+        String read;
+        String str=e.getActionCommand();
+        textField2.setText(first);
+        read=textField2.getText();
+        first=read+str;
+        textField2.setText(first);
+    }
 
     public static void main(String[] args) {
         new calculator();
