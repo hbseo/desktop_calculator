@@ -1,16 +1,17 @@
 # **Serious**
--------------------
-**Serious** 
+
+**Serious**
 is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder , factorial,  and so on.
 
 # **Screenshots**
-------------
 
-
-# **Function** 
+=======
+# **Function**
 --------------
+>>>>>>> Stashed changes
 
-Standard Function  
+# **Standard Function**
+
 - **0~9** : NUMBER
 - **+** :  PLUS
 - **-** :  MINUS
@@ -25,18 +26,28 @@ Standard Function
 
 
 # Additional Function
-----------------
+
 - **AVG** : AVERAGE  
 - **!** : FACTORIAL  
 - **P** : DISTINTION PRIME NUMBER - RETURN TRUE OR FALSE  
 - **MOD** : REMAINDER
 
 # **Compiling**  
--------------------
+
 To compile Serious, downloads Serious.class and open.
 
 
 # **Bugs & Feedback**
--------------
+
 To report bugs, please create a GitHub issue.  
 Email : gusqja8753@gmail.com
+
+
+
+
+
+
+
+=======
+Email : gusqja8753@gmail.com
+>>>>>>> Stashed changes
