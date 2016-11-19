@@ -5,7 +5,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 # **Screenshots**
 
-![](http://imageshack.com/a/img923/6936/pLL3oX.png "")
+![](http://imageshack.com/a/img921/4945/3EX9NE.png "")
 
 # **Standard Function**
 
