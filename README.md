@@ -1,7 +1,7 @@
 # **Serious**
 
 **Serious**
-is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder , factorial,  and so on.
+is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder, factorial, and so on.
 
 # **Screenshots**
 
@@ -31,9 +31,9 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 # **Compiling**  
 
-To compile Serious, downloads Serious/Serious.java
-Then open your terminal and type 'javac Serious.java'
-To run the generated class file, type 'java Serious'
+To compile Serious, downloads 'Serious/Serious.java'.
+Then open your terminal and type 'javac Serious.java'.
+To run the generated class file, type 'java Serious'.
 
 
 # **Bugs & Feedback**
