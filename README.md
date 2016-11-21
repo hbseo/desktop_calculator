@@ -26,7 +26,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 - **AVG** : AVERAGE  
 - **!** : FACTORIAL  
-- **P** : DISTINTION PRIME NUMBER - RETURN TRUE OR FALSE  
+- **P** : DISTINCTION PRIME NUMBER - RETURN TRUE OR FALSE  
 - **MOD** : REMAINDER
 
 # **Compiling**  
