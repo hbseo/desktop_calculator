@@ -15,7 +15,8 @@ public class calculator extends JFrame implements ActionListener{
     JTextField textField, textField2;
     ArrayList<Integer> number = new ArrayList<Integer>();  		// 값들 누적으로 받기.
     ArrayList<String> operator = new ArrayList<String>();  		// 연산자 누적으로 저장.
-    private String first="";
+    private String inlabel="";
+    private String su="";
     private String result="";
 
     // 생성자
@@ -139,29 +140,33 @@ public class calculator extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         String read;
         String str=e.getActionCommand();
-        if(str!="+"){
-          textField.setText(first);
-          read=textField.getText();
-          first=read+str;
-          textField.setText(first);
+        if(str!="+" && str!="="){
+          // textField.setText(first);
+          // if(inlabel)
+          // read=textField.getText();
+          su+=str;
+          inlabel+=str;
+          System.out.printf("%s\n",su);
+          textField.setText(inlabel);
         }
         if(str=="+"){
-          textField.getText();
-          number.add(Integer.parseInt(first));
-          first="";
-          read=textField.getText();
-          first=read+str;
+          // textField.setText(firs);
+          number.add(Integer.parseInt(su));
+          // read=textField.getText();
+          inlabel+=str;
+          textField.setText(inlabel);
+          su="";
           operator.add(str);
         }
         if(str=="="){
-            int sum=0;
-            sum=number.get(0);
-            for(int i=0;i<number.size();i++){
-              sum=sum+number.get(i);
-            }
-            result=sum+"";
-            textField.setText(result);
-            textField.getText();
+          number.add(Integer.parseInt(su));
+          int sum=0;
+          for(int i=0;i<number.size();i++){
+            sum=sum+number.get(i);
+          }
+          result=sum+"";
+          textField.setText(result);
+          su=""; inlabel=""; number.clear();
         }
     }
 
