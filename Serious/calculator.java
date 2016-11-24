@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-// v0.3
+// v0.4
 
 public class calculator extends JFrame implements ActionListener{
 
@@ -13,8 +13,11 @@ public class calculator extends JFrame implements ActionListener{
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
             minusbtn, plusbtn, equalbtn, dotbtn;
     JTextField textField, textField2;
-    private String first="";
-
+    ArrayList<Integer> number = new ArrayList<Integer>();  		// 값들 누적으로 받기.
+    ArrayList<String> operator = new ArrayList<String>();  		// 연산자 누적으로 저장.
+    private String inlabel="";
+    private String su="";
+    private String result="";
 
     // 생성자
     public calculator() {
@@ -137,10 +140,34 @@ public class calculator extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         String read;
         String str=e.getActionCommand();
-        textField.setText(first);
-        read=textField.getText();
-        first=read+str;
-        textField.setText(first);
+        if(str!="+" && str!="="){
+          // textField.setText(first);
+          // if(inlabel)
+          // read=textField.getText();
+          su+=str;
+          inlabel+=str;
+          System.out.printf("%s\n",su);
+          textField.setText(inlabel);
+        }
+        if(str=="+"){
+          // textField.setText(firs);
+          number.add(Integer.parseInt(su));
+          // read=textField.getText();
+          inlabel+=str;
+          textField.setText(inlabel);
+          su="";
+          operator.add(str);
+        }
+        if(str=="="){
+          number.add(Integer.parseInt(su));
+          int sum=0;
+          for(int i=0;i<number.size();i++){
+            sum=sum+number.get(i);
+          }
+          result=sum+"";
+          textField.setText(result);
+          su=""; inlabel=""; number.clear();
+        }
     }
 
     public static void main(String[] args) {
