@@ -3,33 +3,28 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-// v0.4
+// v0.5
 
-public class calculator extends JFrame implements ActionListener{
-
+public class Serious extends JFrame implements ActionListener{
     JPanel panel;
     JButton [] num_btn = new JButton[10];
     JButton Primebtn, MODbtn, AVGbtn, factorialbtn, deletebtn, clearbtn,
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
             minusbtn, plusbtn, equalbtn, dotbtn;
     JTextField textField, textField2;
-    ArrayList<Integer> number = new ArrayList<Integer>();  		// 값들 누적으로 받기.
-    ArrayList<String> operator = new ArrayList<String>();  		// 연산자 누적으로 저장.
-    private String inlabel="";
-    private String su="";
-    private String result="";
+    ArrayList<Integer> number = new ArrayList<Integer>();  		// 숫자 ArrayList.
+    ArrayList<String> operator = new ArrayList<String>();  		// 연산자 ArrayList.
+    private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
+    private String su=""; // 현재 입력 중인 숫자
+    private String result=""; // 계산 결과
 
     // 생성자
-    public calculator() {
+    public Serious() {
         setTitle("Serious");
-        setSize(320, 500);       // size
+        setSize(320, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         // 레이아웃 설정
         setLayout(null);
-//        JLayeredPane layeredPane = new JLayeredPane();
-//        layeredPane.setBounds(0, 0, 320, 540);
-//        layeredPane.setLayout(null);
 
         // 패널 설정
         panel = new JPanel();
@@ -37,14 +32,10 @@ public class calculator extends JFrame implements ActionListener{
         panel.setBounds(0, 0, 320, 500); //패널의 크기 및 위치 지정 (x,y로 부터 넓이(width, 높이(height))
 
         // 텍스트 필드 설정
-
         textField = new JTextField("");
-
         textField.setHorizontalAlignment(JTextField.RIGHT);   // 우측정렬
         textField.setEditable(false); 		// 텍스트필드창에 텍스트쓰지못하게 잠금
-
         textField.setBounds(0,0,320,60);
-
         panel.add(textField);
 
         // 버튼 설정
@@ -138,39 +129,30 @@ public class calculator extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e){
-        String read;
         String str=e.getActionCommand();
         if(str!="+" && str!="="){
-          // textField.setText(first);
-          // if(inlabel)
-          // read=textField.getText();
-          su+=str;
+          su+=str; //숫자 입력 업데이트
           inlabel+=str;
-          System.out.printf("%s\n",su);
-          textField.setText(inlabel);
+          textField.setText(inlabel); //라벨에 추가
         }
         if(str=="+"){
-          // textField.setText(firs);
-          number.add(Integer.parseInt(su));
-          // read=textField.getText();
+          number.add(Integer.parseInt(su)); //기호를 누르면 지금까지 입력한 수를 어레이리스트에 넣기
           inlabel+=str;
-          textField.setText(inlabel);
-          su="";
-          operator.add(str);
+          textField.setText(inlabel); //라벨에 추가
+          su=""; //입력한 수 비우기
+          operator.add(str); //연산자 저장
         }
         if(str=="="){
-          number.add(Integer.parseInt(su));
-          int sum=0;
-          for(int i=0;i<number.size();i++){
-            sum=sum+number.get(i);
-          }
+          number.add(Integer.parseInt(su)); //기호를 누르면 지금까지 입력한 수를 어레이리스트에 넣기
+          int sum=0; //총 합
+          for(int i=0;i<number.size();i++)
+            sum=sum+number.get(i); // 숫자 더하기
           result=sum+"";
-          textField.setText(result);
-          su=""; inlabel=""; number.clear();
+          textField.setText(result); // 결과 출력하기
+          su=""; inlabel=""; number.clear(); // 초기화
         }
     }
-
     public static void main(String[] args) {
-        new calculator();
+        new Serious();
     }
 }
