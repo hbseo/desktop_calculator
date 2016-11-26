@@ -1,12 +1,14 @@
 import javax.swing.*;
+import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-// v0.5
+// v0.5.1
 
 public class Serious extends JFrame implements ActionListener{
     JPanel panel;
+    JFrame frame;
     JButton [] num_btn = new JButton[10];
     JButton Primebtn, MODbtn, AVGbtn, factorialbtn, deletebtn, clearbtn,
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
@@ -56,6 +58,31 @@ public class Serious extends JFrame implements ActionListener{
         plusbtn = new JButton("+");
         equalbtn = new JButton("=");
         dotbtn = new JButton(".");
+
+        //버튼 글씨색
+
+        for (int i=0; i<10; i++)
+            num_btn[i].setForeground(Color.BLACK);
+
+        dotbtn.setForeground(Color.BLACK);
+        leftbracketbtn.setForeground(Color.BLACK);
+        rightbracketbtn.setForeground(Color.BLACK);
+        percentbtn.setForeground(Color.BLACK);
+        deletebtn.setForeground(Color.BLACK);
+        clearbtn.setForeground(Color.RED);
+
+        equalbtn.setForeground(Color.BLUE);
+        plusbtn.setForeground(Color.BLUE);
+        minusbtn.setForeground(Color.BLUE);
+        multiplebtn.setForeground(Color.BLUE);
+        dividebtn.setForeground(Color.BLUE);
+
+        Color orange = new Color(255, 153, 000);
+
+        Primebtn.setForeground(orange);
+        MODbtn.setForeground(orange);
+        AVGbtn.setForeground(orange);
+        factorialbtn.setForeground(orange);
 
         // 버튼 배열
         num_btn[0].setBounds(0,420,160,60);
@@ -124,6 +151,8 @@ public class Serious extends JFrame implements ActionListener{
         panel.add(factorialbtn);
 
         add(panel);
+
+
 
         setVisible(true);
 
