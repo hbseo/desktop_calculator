@@ -22,12 +22,18 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 - **<-** : DELETE
 
 
-# Additional Function
+# **Additional Function**
 
 - **AVG** : AVERAGE  
 - **!** : FACTORIAL  
 - **P** : DISTINCTION PRIME NUMBER - RETURN TRUE OR FALSE  
 - **MOD** : REMAINDER
+
+# **Next Version**
+
+- **Calculate** : Serious has to be able to do calculate.
+- **Design** : More Optimization
+
 
 # **Compiling**  
 
