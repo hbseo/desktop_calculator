@@ -50,7 +50,7 @@ public class Serious extends JFrame implements ActionListener{
         deletebtn = new JButton("<-");
         clearbtn = new JButton("C");
         dividebtn = new JButton("/");
-        multiplebtn = new JButton("*");
+        multiplebtn = new JButton("x");
         percentbtn = new JButton("%");
         leftbracketbtn = new JButton("(");
         rightbracketbtn = new JButton(")");
@@ -161,13 +161,13 @@ public class Serious extends JFrame implements ActionListener{
         String str=e.getActionCommand();
         System.out.println("=> "+str);
         // "P" "MOD" "AVG" "!" "<-" "C"
-        if(str!="+" && str!="-" && str!="*" && str!="/" && str!="(" && str!=")" && str!="="){
+        if(str!="+" && str!="-" && str!="x" && str!="/" && str!="(" && str!=")" && str!="="){
           // su+=str; //숫자 입력 업데이트
           inlabel+=str;
           System.out.println("=> ");
           textField.setText(inlabel); //라벨에 추가
         }
-        else if(str=="+" || str=="-" || str=="*" || str=="/" || str=="(" || str==")"){
+        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
           // number.add(Integer.parseInt(su)); //기호를 누르면 지금까지 입력한 수를 어레이리스트에 넣기
           inlabel+=" "+str+" ";
           textField.setText(inlabel); //라벨에 추가
@@ -248,7 +248,7 @@ class InfixCalc{
 
 			switch(tempOpper[0])
 			{
-			case '*':
+			case 'x':
 				list.add(totalCount-countMul);
 				countMul++;
 				break;
@@ -301,7 +301,7 @@ class InfixCalc{
 			tempSaveOperand[1] = operand.get(temp+1);
 			//list에 입력되어 있는 index값을 이용해 operand와 operator를 불러와 저장한다.
 
-			if(tempSaveOperator == '*')
+			if(tempSaveOperator == 'x')
 				operand.set(temp, tempSaveOperand[0] * tempSaveOperand[1]);
 			else if(tempSaveOperator == '/')
 				operand.set(temp, tempSaveOperand[0] / tempSaveOperand[1]);
