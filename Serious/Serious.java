@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-// v0.5.1
+// v0.6.0
 
 public class Serious extends JFrame implements ActionListener{
     JPanel panel;
