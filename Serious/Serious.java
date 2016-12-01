@@ -14,11 +14,8 @@ public class Serious extends JFrame implements ActionListener{
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
             minusbtn, plusbtn, equalbtn, dotbtn;
     JTextField textField, textField2;
-    // ArrayList<Integer> number = new ArrayList<Integer>();  		// 숫자 ArrayList.
-    // ArrayList<String> operator = new ArrayList<String>();  		// 연산자 ArrayList.
     private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
     private String su=""; // 현재 입력 중인 숫자
-    // private String result=""; // 계산 결과
 
     // 생성자
     public Serious() {
@@ -48,12 +45,9 @@ public class Serious extends JFrame implements ActionListener{
         textField.setEditable(false); 		// 텍스트필드창에 텍스트쓰지못하게 잠금
         textField.setBounds(0,0,320,60);
         panel.add(textField);
-
     }
-
     // 버튼 설정
     private void AddButton() {
-
         for (int i=0; i<10; i++)
             num_btn[i] = new JButton(String.valueOf(i));
         Primebtn = new JButton("P");
@@ -71,19 +65,15 @@ public class Serious extends JFrame implements ActionListener{
         plusbtn = new JButton("+");
         equalbtn = new JButton("=");
         dotbtn = new JButton(".");
-
         //버튼 글씨색
-
         for (int i=0; i<10; i++)
             num_btn[i].setForeground(Color.BLACK);
-
         dotbtn.setForeground(Color.BLACK);
         leftbracketbtn.setForeground(Color.BLACK);
         rightbracketbtn.setForeground(Color.BLACK);
         percentbtn.setForeground(Color.BLACK);
         deletebtn.setForeground(Color.BLACK);
         clearbtn.setForeground(Color.RED);
-
         equalbtn.setForeground(Color.BLUE);
         plusbtn.setForeground(Color.BLUE);
         minusbtn.setForeground(Color.BLUE);
@@ -166,44 +156,25 @@ public class Serious extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        // System.out.println("=> "+str);
-        // "P" "MOD" "AVG" "!" "<-" "C"
         if(str!="+" && str!="-" && str!="x" && str!="/" && str!="(" && str!=")" && str!="="){
-            // su+=str; //숫자 입력 업데이트
             inlabel+=str;
-            // System.out.println("=> ");
             textField.setText(inlabel); //라벨에 추가
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
-            // number.add(Integer.parseInt(su)); //기호를 누르면 지금까지 입력한 수를 어레이리스트에 넣기
             inlabel+=" "+str+" ";
             textField.setText(inlabel); //라벨에 추가
-            // su=""; //입력한 수 비우기
-            // operator.add(str); //연산자 저장
         }
         else if(str=="="){
-            // number.add(Integer.parseInt(su)); //기호를 누르면 지금까지 입력한 수를 어레이리스트에 넣기
-//          int sum=0; //총 합
-//          for(int i=0;i<number.size();i++)
-//            sum=sum+number.get(i); // 숫자 더하기
-//          result=sum+"";
-            // InfixCalc calc = new InfixCalc(inlabel);
-            // calc.findOrder();
-            // System.out.println("=> "+calc.returnResult());
-            // textField.setText(Double.toString(calc.returnResult())); // 결과 출력하기
-            // su="";
-            // number.clear();
             Calc c = new Calc();
             if (!c.bracketsBalance(inlabel)){
-              textField.setText("Parenthesis Error");
-              inlabel="";
+                textField.setText("Parenthesis Error");
+                inlabel="";
             }
             else{
-              String postfixExp = c.postfix(inlabel);
-              Double result = c.result(postfixExp);
-              // System.out.println("The postfix expression for "+ inlabel +" is " + postfixExp);
-              textField.setText(Double.toString(result));
-              inlabel="";
+                String postfixExp = c.postfix(inlabel);
+                Double result = c.result(postfixExp);
+                textField.setText(Double.toString(result));
+                inlabel="";
             }
         }
     }
