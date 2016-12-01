@@ -7,7 +7,7 @@ import java.lang.*;
 
 // v0.6.1
 
-public class Serious extends JFrame implements ActionListener{
+public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
     JFrame frame;
     JButton [] num_btn = new JButton[10];
@@ -138,6 +138,26 @@ public class Serious extends JFrame implements ActionListener{
         AVGbtn.addActionListener(this);
         factorialbtn.addActionListener(this);
 
+        // addKeyListener 추가
+        for (int i=0; i<10; i++)
+            num_btn[i].addKeyListener(this);
+        dotbtn.addKeyListener(this);
+        equalbtn.addKeyListener(this);
+        plusbtn.addKeyListener(this);
+        minusbtn.addKeyListener(this);
+        percentbtn.addKeyListener(this);
+        leftbracketbtn.addKeyListener(this);
+        rightbracketbtn.addKeyListener(this);
+        multiplebtn.addKeyListener(this);
+        deletebtn.addKeyListener(this);
+        clearbtn.addKeyListener(this);
+        dividebtn.addKeyListener(this);
+        Primebtn.addKeyListener(this);
+        MODbtn.addKeyListener(this);
+        AVGbtn.addKeyListener(this);
+        factorialbtn.addKeyListener(this);
+
+
         panel.add(dotbtn);
         panel.add(equalbtn);
         panel.add(plusbtn);
@@ -183,7 +203,22 @@ public class Serious extends JFrame implements ActionListener{
             }
         }
     }
+
+    // 키보드 이벤트 처리
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+
     public static void main(String[] args) {
         new Serious();
     }
+
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
