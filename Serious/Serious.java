@@ -3,6 +3,7 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.lang.*;
 
 // v0.6.1
 
@@ -173,7 +174,11 @@ public class Serious extends JFrame implements ActionListener{
             else{
                 String postfixExp = c.postfix(inlabel);
                 Double result = c.result(postfixExp);
-                textField.setText(Double.toString(result));
+                String tmp = result.toString();
+                if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
+                    tmp = tmp.substring(0,tmp.length()-2);
+                }
+                textField.setText(tmp);
                 inlabel="";
             }
         }
