@@ -41,8 +41,8 @@ public class ArrayStack implements Stack   {
 	/** remove top element of stack and return it
    * throw EmptyStackException when the stack is empty */
      public Object pop() {
-            if  (isEmpty())
-                  throw new EmptyStackException();
+            if(isEmpty())
+              throw new EmptyStackException();
             Object topElement = stack[top];
              stack[top--] = null;   // enable garbage collection
              return topElement;
