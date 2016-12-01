@@ -207,7 +207,63 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // 키보드 이벤트 처리
     @Override
     public void keyPressed(KeyEvent e) {
-
+        int keycode = e.getKeyChar();
+        switch (keycode) {
+            case KeyEvent.VK_0:
+                //
+                break;
+            case KeyEvent.VK_1:
+                //
+                break;
+            case KeyEvent.VK_2:
+                //
+                break;
+            case KeyEvent.VK_3:
+                //
+                break;
+            case KeyEvent.VK_4:
+                //
+                break;
+            case KeyEvent.VK_5:
+                //
+                break;
+            case KeyEvent.VK_6:
+                //
+                break;
+            case KeyEvent.VK_7:
+                //
+                break;
+            case KeyEvent.VK_8:
+                //
+                break;
+            case KeyEvent.VK_9:
+                //
+                break;
+            case 46: // .
+                //
+                break;
+            case 10: // =
+                //
+                break;
+            case 47: // /
+                //
+                break;
+            case 42: // *
+                //
+                break;
+            case 43: // +
+                //
+                break;
+            case 45: // -
+                //
+                break;
+            case 8: //backspace
+                //
+                break;
+            case 27: //ESC
+                //
+                break;
+        }
     }
 
 
