@@ -177,13 +177,19 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        if(str!="+" && str!="-" && str!="x" && str!="/" && str!="(" && str!=")" && str!="="){
+        if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
+           str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
+           str.equals("8") || str.equals("9")){
             inlabel+=str;
             textField.setText(inlabel); //라벨에 추가
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
             inlabel+=" "+str+" ";
             textField.setText(inlabel); //라벨에 추가
+        }
+        else if(str=="C"){
+          inlabel="";
+          textField.setText(inlabel); //라벨에 추가
         }
         else if(str=="="){
             Calc c = new Calc();

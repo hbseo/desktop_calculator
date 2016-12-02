@@ -4,18 +4,18 @@
 *후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
 * 수식등의 괄호가 맞는지 확인하는 메소드
 */
-class Calc {
+class Calc{
   //-------------------------------------------------------------------
   //스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
   //-------------------------------------------------------------------
-    String  postfix(String infixExp) {
+    String postfix(String infixExp){
         Double value;
         //숫자의 끝임을 알려주는 flag
         //소수점 수식도 처리하기 위해서...
         boolean endOfNumber = false;
         String postfixExp = new String();
         ArrayStack stk = new ArrayStack();
-        for(int i = 0; i < infixExp.length(); i++){
+        for(int i=0;i<infixExp.length();i++){
             switch(infixExp.charAt(i)){
                 //피연산자는 그대로 출력한다.
                 case '0':
