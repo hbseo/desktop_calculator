@@ -3,10 +3,11 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.lang.*;
 
 // v0.6.1
 
-public class Serious extends JFrame implements ActionListener{
+public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
     JFrame frame;
     JButton [] num_btn = new JButton[10];
@@ -137,6 +138,26 @@ public class Serious extends JFrame implements ActionListener{
         AVGbtn.addActionListener(this);
         factorialbtn.addActionListener(this);
 
+        // addKeyListener 추가
+        for (int i=0; i<10; i++)
+            num_btn[i].addKeyListener(this);
+        dotbtn.addKeyListener(this);
+        equalbtn.addKeyListener(this);
+        plusbtn.addKeyListener(this);
+        minusbtn.addKeyListener(this);
+        percentbtn.addKeyListener(this);
+        leftbracketbtn.addKeyListener(this);
+        rightbracketbtn.addKeyListener(this);
+        multiplebtn.addKeyListener(this);
+        deletebtn.addKeyListener(this);
+        clearbtn.addKeyListener(this);
+        dividebtn.addKeyListener(this);
+        Primebtn.addKeyListener(this);
+        MODbtn.addKeyListener(this);
+        AVGbtn.addKeyListener(this);
+        factorialbtn.addKeyListener(this);
+
+
         panel.add(dotbtn);
         panel.add(equalbtn);
         panel.add(plusbtn);
@@ -173,12 +194,87 @@ public class Serious extends JFrame implements ActionListener{
             else{
                 String postfixExp = c.postfix(inlabel);
                 Double result = c.result(postfixExp);
-                textField.setText(Double.toString(result));
+                String tmp = result.toString();
+                if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
+                    tmp = tmp.substring(0,tmp.length()-2);
+                }
+                textField.setText(tmp);
                 inlabel="";
             }
         }
     }
+
+    // 키보드 이벤트 처리
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int keycode = e.getKeyChar();
+        switch (keycode) {
+            case KeyEvent.VK_0:
+                //
+                break;
+            case KeyEvent.VK_1:
+                //
+                break;
+            case KeyEvent.VK_2:
+                //
+                break;
+            case KeyEvent.VK_3:
+                //
+                break;
+            case KeyEvent.VK_4:
+                //
+                break;
+            case KeyEvent.VK_5:
+                //
+                break;
+            case KeyEvent.VK_6:
+                //
+                break;
+            case KeyEvent.VK_7:
+                //
+                break;
+            case KeyEvent.VK_8:
+                //
+                break;
+            case KeyEvent.VK_9:
+                //
+                break;
+            case 46: // .
+                //
+                break;
+            case 10: // =
+                //
+                break;
+            case 47: // /
+                //
+                break;
+            case 42: // *
+                //
+                break;
+            case 43: // +
+                //
+                break;
+            case 45: // -
+                //
+                break;
+            case 8: //backspace
+                //
+                break;
+            case 27: //ESC
+                //
+                break;
+        }
+    }
+
+
     public static void main(String[] args) {
         new Serious();
     }
+
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
 }
