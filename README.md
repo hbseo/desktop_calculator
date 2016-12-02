@@ -31,8 +31,8 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 # **Next Version**
 
-- **Calculate** : Serious has to be able to do calculate.
-- **Design** : More Optimization
+- **Calculate** : Serious has to be able to do calculate in addtional function
+- **KeyListener** : Serious has to be able to input on keyboard
 
 
 # **Compiling**  
