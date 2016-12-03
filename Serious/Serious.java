@@ -188,6 +188,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if(str=="C"){
           ClearEvent();
         }
+        else if (str == "<-") {
+            BackEvent();
+        }
         else if(str=="="){
             Calc c = new Calc();
             if (!c.bracketsBalance(inlabel)){
@@ -207,6 +210,13 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+    // Back 이벤트
+    public void BackEvent() {
+        if (!inlabel.equals("")){
+            inlabel = inlabel.substring(0, inlabel.length()-1);
+            textField.setText(inlabel);
+        }
+    }
 
     // Clear 이벤트
     public void ClearEvent() {
@@ -298,7 +308,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 AddOperator(str);
                 break;
             case 8: //backspace
-                //
+                BackEvent();
                 break;
             case 27: //ESC
                 ClearEvent();
