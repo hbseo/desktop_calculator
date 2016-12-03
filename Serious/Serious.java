@@ -192,21 +192,26 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             BackEvent();
         }
         else if(str=="="){
-            Calc c = new Calc();
-            if (!c.bracketsBalance(inlabel)){
-                textField.setText("Parenthesis Error");
-                inlabel="";
+            EqualEvent();
+        }
+    }
+
+    // = 이벤트
+    public void EqualEvent() {
+        Calc c = new Calc();
+        if (!c.bracketsBalance(inlabel)){
+            textField.setText("Parenthesis Error");
+            inlabel="";
+        }
+        else{
+            String postfixExp = c.postfix(inlabel);
+            Double result = c.result(postfixExp);
+            String tmp = result.toString();
+            if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
+                tmp = tmp.substring(0,tmp.length()-2);
             }
-            else{
-                String postfixExp = c.postfix(inlabel);
-                Double result = c.result(postfixExp);
-                String tmp = result.toString();
-                if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
-                    tmp = tmp.substring(0,tmp.length()-2);
-                }
-                textField.setText(tmp);
-                inlabel="";
-            }
+            textField.setText(tmp);
+            inlabel="";
         }
     }
 
@@ -286,10 +291,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 //
                 break;
             case 10: // (enter)
-                //
-                break;
-            case 61: // =
-                //
+                EqualEvent();
                 break;
             case 47: // /
                 str = "/";
