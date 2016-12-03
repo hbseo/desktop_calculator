@@ -14,7 +14,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     JButton Primebtn, MODbtn, AVGbtn, factorialbtn, deletebtn, clearbtn,
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
             minusbtn, plusbtn, equalbtn, dotbtn;
-    JTextField textField, textField2;
+    JTextField textField;
     private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
     private String su=""; // 현재 입력 중인 숫자
 
@@ -180,16 +180,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
            str.equals("8") || str.equals("9")){
-            inlabel+=str;
-            textField.setText(inlabel); //라벨에 추가
+            AddNumberEvent(str);
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
             inlabel+=" "+str+" ";
             textField.setText(inlabel); //라벨에 추가
         }
         else if(str=="C"){
-          inlabel="";
-          textField.setText(inlabel); //라벨에 추가
+          ClearEvent();
         }
         else if(str=="="){
             Calc c = new Calc();
@@ -210,40 +208,61 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+
+    // Clear 이벤트
+    public void ClearEvent() {
+        inlabel = "";
+        textField.setText(inlabel);
+    }
+
+
+    // 숫자 넣는 이벤트
+    public void AddNumberEvent(String str) {
+        inlabel += str;
+        textField.setText(inlabel);
+    }
+
+    public void AddNumberEvent(int num) {
+        int tmp = num - '0';
+        String str = String.valueOf(tmp);
+        inlabel += str;
+        textField.setText(inlabel);
+    }
+
     // 키보드 이벤트 처리
     @Override
     public void keyPressed(KeyEvent e) {
         int keycode = e.getKeyChar();
         switch (keycode) {
             case KeyEvent.VK_0:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_1:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_2:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_3:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_4:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_5:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_6:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_7:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_8:
-                //
+                AddNumberEvent(keycode);
                 break;
             case KeyEvent.VK_9:
-                //
+                AddNumberEvent(keycode);
                 break;
             case 46: // .
                 //
@@ -267,7 +286,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 //
                 break;
             case 27: //ESC
-                //
+                ClearEvent();
                 break;
         }
     }
