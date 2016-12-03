@@ -1,3 +1,5 @@
+import com.sun.javafx.geom.AreaOp;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
@@ -183,8 +185,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             AddNumberEvent(str);
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
-            inlabel+=" "+str+" ";
-            textField.setText(inlabel); //라벨에 추가
+            AddOperator(str);
         }
         else if(str=="C"){
           ClearEvent();
@@ -215,8 +216,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         textField.setText(inlabel);
     }
 
+    // 연산자 이벤트
+    public void AddOperator(String str) {
+        inlabel += " "+str+" ";
+        textField.setText(inlabel);
+    }
 
-    // 숫자 넣는 이벤트
+
+    // 숫자 이벤트
     public void AddNumberEvent(String str) {
         inlabel += str;
         textField.setText(inlabel);
@@ -233,6 +240,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int keycode = e.getKeyChar();
+        String str;
         switch (keycode) {
             case KeyEvent.VK_0:
                 AddNumberEvent(keycode);
@@ -267,20 +275,27 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 46: // .
                 //
                 break;
-            case 10: // =
+            case 10: // (enter)
+                //
+                break;
+            case 61: // =
                 //
                 break;
             case 47: // /
-                //
+                str = "/";
+                AddOperator(str);
                 break;
             case 42: // *
-                //
+                str = "*";
+                AddOperator(str);
                 break;
             case 43: // +
-                //
+                str = "+";
+                AddOperator(str);
                 break;
             case 45: // -
-                //
+                str = "-";
+                AddOperator(str);
                 break;
             case 8: //backspace
                 //
