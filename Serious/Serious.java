@@ -216,8 +216,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     // 연산자 이벤트
     public void AddOperator(String str) {
-        inlabel += " "+str+" ";
-        textField.setText(inlabel);
+        if (!inlabel.equals("")) {
+            inlabel += " " + str + " ";
+            textField.setText(inlabel);
+        }
     }
 
 
