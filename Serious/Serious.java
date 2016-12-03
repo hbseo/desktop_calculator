@@ -1,5 +1,3 @@
-import com.sun.javafx.geom.AreaOp;
-
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
