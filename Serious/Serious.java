@@ -219,8 +219,16 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // Back 이벤트
     public void BackEvent() {
         if (!inlabel.equals("")){
-            inlabel = inlabel.substring(0, inlabel.length()-1);
-            textField.setText(inlabel);
+            try{
+                char tmp = inlabel.charAt(inlabel.length()-2);
+                if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
+                    inlabel = inlabel.substring(0, inlabel.length()-3);
+                }
+            } catch (StringIndexOutOfBoundsException e){
+                inlabel = inlabel.substring(0, inlabel.length()-1);
+            } finally {
+                textField.setText(inlabel);
+            }
         }
     }
 
@@ -235,21 +243,20 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         if (!inlabel.equals("")) {
             try {
                 char tmp = inlabel.charAt(inlabel.length() - 1);
-                System.out.println(inlabel.substring(inlabel.length()-3, inlabel.length()));
                 if (tmp == ' ') {
                     try {
                         tmp = inlabel.charAt(inlabel.length() - 2);
                         if (tmp == '+' || tmp == '-' || tmp == 'x' || tmp == '/') {
                             inlabel = inlabel.substring(0, inlabel.length() - 3);
                         }
-                    } catch (ArrayIndexOutOfBoundsException e) {
+                    } catch (StringIndexOutOfBoundsException e) {
                         System.out.println("Exception");
                     }
                 }
                 inlabel += " " + str + " ";
-                textField.setText(inlabel);
             } catch (StringIndexOutOfBoundsException e) {
                 inlabel += " " + str + " ";
+            }finally {
                 textField.setText(inlabel);
             }
         }
