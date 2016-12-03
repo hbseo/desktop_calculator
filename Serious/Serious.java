@@ -198,20 +198,21 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     // = 이벤트
     public void EqualEvent() {
-        Calc c = new Calc();
-        if (!c.bracketsBalance(inlabel)){
-            textField.setText("Parenthesis Error");
-            inlabel="";
-        }
-        else{
-            String postfixExp = c.postfix(inlabel);
-            Double result = c.result(postfixExp);
-            String tmp = result.toString();
-            if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
-                tmp = tmp.substring(0,tmp.length()-2);
+        if (!inlabel.equals("")) {
+            Calc c = new Calc();
+            if (!c.bracketsBalance(inlabel)) {
+                textField.setText("Parenthesis Error");
+                inlabel = "";
+            } else {
+                String postfixExp = c.postfix(inlabel);
+                Double result = c.result(postfixExp);
+                String tmp = result.toString();
+                if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
+                    tmp = tmp.substring(0, tmp.length() - 2);
+                }
+                textField.setText(tmp);
+                inlabel = "";
             }
-            textField.setText(tmp);
-            inlabel="";
         }
     }
 
@@ -232,8 +233,25 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // 연산자 이벤트
     public void AddOperator(String str) {
         if (!inlabel.equals("")) {
-            inlabel += " " + str + " ";
-            textField.setText(inlabel);
+            try {
+                char tmp = inlabel.charAt(inlabel.length() - 1);
+                System.out.println(inlabel.substring(inlabel.length()-3, inlabel.length()));
+                if (tmp == ' ') {
+                    try {
+                        tmp = inlabel.charAt(inlabel.length() - 2);
+                        if (tmp == '+' || tmp == '-' || tmp == 'x' || tmp == '/') {
+                            inlabel = inlabel.substring(0, inlabel.length() - 3);
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        System.out.println("Exception");
+                    }
+                }
+                inlabel += " " + str + " ";
+                textField.setText(inlabel);
+            } catch (StringIndexOutOfBoundsException e) {
+                inlabel += " " + str + " ";
+                textField.setText(inlabel);
+            }
         }
     }
 
