@@ -179,17 +179,17 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         String str=e.getActionCommand();
         if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
-           str.equals("8") || str.equals("9")){
+           str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
-        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
+        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){ //기호를 눌렀을 때
             inlabel+=" "+str+" ";
             textField.setText(inlabel); //라벨에 추가
         }
-        else if(str=="C"){
+        else if(str=="C"){ //C를 눌렀을 때
           ClearEvent();
         }
-        else if(str=="="){
+        else if(str=="="){ //등호를 눌렀을 때
             Calc c = new Calc();
             if (!c.bracketsBalance(inlabel)){
                 textField.setText("Parenthesis Error");
@@ -208,13 +208,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
-
     // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
     }
-
 
     // 숫자 넣는 이벤트
     public void AddNumberEvent(String str) {
