@@ -182,21 +182,12 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
            str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
-<<<<<<< HEAD
-        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){ //기호를 눌렀을 때
-            inlabel+=" "+str+" ";
-            textField.setText(inlabel); //라벨에 추가
-=======
         else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
             AddOperator(str);
->>>>>>> b6d6bcf9c54b148a5b1576d6e8bcd493ffdcd1b6
         }
         else if(str=="C"){ //C를 눌렀을 때
           ClearEvent();
         }
-<<<<<<< HEAD
-        else if(str=="="){ //등호를 눌렀을 때
-=======
         else if (str == "<-") {
             BackEvent();
         }
@@ -208,7 +199,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // = 이벤트
     public void EqualEvent() {
         if (!inlabel.equals("")) {
->>>>>>> b6d6bcf9c54b148a5b1576d6e8bcd493ffdcd1b6
             Calc c = new Calc();
             if (!c.bracketsBalance(inlabel)) {
                 textField.setText("Parenthesis Error");
@@ -225,9 +215,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
-
-<<<<<<< HEAD
-=======
     // Back 이벤트
     public void BackEvent() {
         if (!inlabel.equals("")){
@@ -243,17 +230,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
-
->>>>>>> b6d6bcf9c54b148a5b1576d6e8bcd493ffdcd1b6
     // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
     }
-
-<<<<<<< HEAD
-    // 숫자 넣는 이벤트
-=======
     // 연산자 이벤트
     public void AddOperator(String str) {
         if (!inlabel.equals("")) {
@@ -277,10 +258,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
-
-
-    // 숫자 이벤트
->>>>>>> b6d6bcf9c54b148a5b1576d6e8bcd493ffdcd1b6
     public void AddNumberEvent(String str) {
         inlabel += str;
         textField.setText(inlabel);
