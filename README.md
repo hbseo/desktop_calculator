@@ -21,6 +21,8 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 - **)** : RIGHT RARENTHESIS
 - **<-** : DELETE
 
+We have already implemented **Standard Function** except **%**
+
 
 # **Additional Function**
 
@@ -32,12 +34,11 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 # **Next Version**
 
 - **Calculate** : Serious has to be able to do calculate in addtional function
-- **KeyListener** : Serious has to be able to input on keyboard
 
 
 # **Compiling**  
 
-To compile Serious, downloads 'Serious/Serious.java'.
+To compile Serious, downloads 'Serious'.
 Then open your terminal and type 'javac Serious.java'.
 To run the generated class file, type 'java Serious'.
 

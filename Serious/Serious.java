@@ -182,39 +182,110 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
            str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
-        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){ //기호를 눌렀을 때
-            inlabel+=" "+str+" ";
-            textField.setText(inlabel); //라벨에 추가
+        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
+            AddOperator(str);
         }
         else if(str=="C"){ //C를 눌렀을 때
           ClearEvent();
         }
-        else if(str=="="){ //등호를 눌렀을 때
-            Calc c = new Calc();
-            if (!c.bracketsBalance(inlabel)){
-                textField.setText("Parenthesis Error");
-                inlabel="";
-            }
-            else{
-                String postfixExp = c.postfix(inlabel);
-                Double result = c.result(postfixExp);
-                String tmp = result.toString();
-                if (tmp.substring(tmp.length()-2,tmp.length()).equals(".0")) {
-                    tmp = tmp.substring(0,tmp.length()-2);
-                }
-                textField.setText(tmp);
-                inlabel="";
-            }
+        else if (str == "<-") {
+            BackEvent();
+        }
+        else if(str=="="){
+            EqualEvent();
+        }
+        else if (str == ".") {
+            DotEvent(str);
+        }
+        else if (str == "%") {
+            PercentEvent(str);
         }
     }
 
+    // % 이벤트
+    public void PercentEvent(String str) {
+
+    }
+
+    // .이벤트
+    public void DotEvent(String str) {
+        if (inlabel.equals("")) {
+            inlabel += "0.";
+        }
+        else if (inlabel.charAt(inlabel.length()-1) == ' ') {
+            inlabel += "0.";
+        }
+        else {
+            inlabel += str;
+        }
+        textField.setText(inlabel);
+    }
+
+
+    // = 이벤트
+    public void EqualEvent() {
+        if (!inlabel.equals("")) {
+            Calc c = new Calc();
+            if (!c.bracketsBalance(inlabel)) {
+                textField.setText("Parenthesis Error");
+                inlabel = "";
+            } else {
+                String postfixExp = c.postfix(inlabel);
+                Double result = c.result(postfixExp);
+                String tmp = result.toString();
+                if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
+                    tmp = tmp.substring(0, tmp.length() - 2);
+                }
+                textField.setText(tmp);
+                inlabel = tmp;
+            }
+        }
+    }
+    // Back 이벤트
+    public void BackEvent() {
+        if (!inlabel.equals("")){
+            try{
+                char tmp = inlabel.charAt(inlabel.length()-2);
+                if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
+                    inlabel = inlabel.substring(0, inlabel.length()-3);
+                }
+            } catch (StringIndexOutOfBoundsException e){
+                inlabel = inlabel.substring(0, inlabel.length()-1);
+            } finally {
+                textField.setText(inlabel);
+            }
+        }
+    }
     // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
     }
+    // 연산자 이벤트
+    public void AddOperator(String str) {
+        if (!inlabel.equals("")) {
+            try {
+                char tmp = inlabel.charAt(inlabel.length() - 1);
+                if (tmp == ' ') {
+                    try {
+                        tmp = inlabel.charAt(inlabel.length() - 2);
+                        if (tmp == '+' || tmp == '-' || tmp == 'x' || tmp == '/') {
+                            inlabel = inlabel.substring(0, inlabel.length() - 3);
+                        }
+                    } catch (StringIndexOutOfBoundsException e) {
+                        System.out.println("Exception");
+                    }
+                }
+                inlabel += " " + str + " ";
+            } catch (StringIndexOutOfBoundsException e) {
+                inlabel += " " + str + " ";
+            }finally {
+                textField.setText(inlabel);
+            }
+        }
+    }
 
-    // 숫자 넣는 이벤트
+    // 숫자 이벤트
     public void AddNumberEvent(String str) {
         inlabel += str;
         textField.setText(inlabel);
@@ -231,6 +302,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int keycode = e.getKeyChar();
+        String str;
         switch (keycode) {
             case KeyEvent.VK_0:
                 AddNumberEvent(keycode);
@@ -263,25 +335,30 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 AddNumberEvent(keycode);
                 break;
             case 46: // .
-                //
+                str = ".";
+                DotEvent(str);
                 break;
-            case 10: // =
-                //
+            case 10: // (enter)
+                EqualEvent();
                 break;
             case 47: // /
-                //
+                str = "/";
+                AddOperator(str);
                 break;
             case 42: // *
-                //
+                str = "*";
+                AddOperator(str);
                 break;
             case 43: // +
-                //
+                str = "+";
+                AddOperator(str);
                 break;
             case 45: // -
-                //
+                str = "-";
+                AddOperator(str);
                 break;
             case 8: //backspace
-                //
+                BackEvent();
                 break;
             case 27: //ESC
                 ClearEvent();
