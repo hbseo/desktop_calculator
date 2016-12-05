@@ -276,6 +276,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
+
+    // 숫자 이벤트
     public void AddNumberEvent(String str) {
         inlabel += str;
         textField.setText(inlabel);
