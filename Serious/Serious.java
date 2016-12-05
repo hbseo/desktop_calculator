@@ -197,6 +197,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (str == ".") {
             DotEvent(str);
         }
+        else if (str == "%") {
+            PercentEvent(str);
+        }
+    }
+
+    // % 이벤트
+    public void PercentEvent(String str) {
+
     }
 
     // .이벤트
