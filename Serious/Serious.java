@@ -177,6 +177,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
+        // boolean idt_num = true;
         if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
            str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
@@ -193,18 +194,24 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         else if(str=="="){
             EqualEvent();
+            // idt_num=false;
         }
         else if (str == ".") {
             DotEvent(str);
         }
         else if (str == "%") {
-            PercentEvent(str);
+            PercentEvent();
+            // idt_num=false;
         }
     }
 
     // % 이벤트
-    public void PercentEvent(String str) {
-
+    public void PercentEvent() {
+        if (!inlabel.equals("")) {
+            EqualEvent();
+            inlabel += " / 100";
+            EqualEvent();
+        }
     }
 
     // .이벤트
@@ -366,6 +373,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 27: //ESC
                 ClearEvent();
                 break;
+            case 37: //%
+                PercentEvent();
+            break;
         }
     }
 
