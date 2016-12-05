@@ -17,6 +17,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     JTextField textField;
     private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
     private String su=""; // 현재 입력 중인 숫자
+    boolean idt_num = true;
 
     // 생성자
     public Serious() {
@@ -177,16 +178,20 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
+        if(idt_num && (str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
-           str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
+           str.equals("8") || str.equals("9"))){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
-        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
+        else if(str=="+" || str=="-" || str=="x" || str=="/"){
+            AddOperator(str);
+            idt_num = true;
+        }
+        else if(idt_num && (str=="(" || str==")")){
             AddOperator(str);
         }
         else if(str=="C"){ //C를 눌렀을 때
-          ClearEvent();
+            ClearEvent();
         }
         else if (str == "<-") {
             BackEvent();
@@ -194,17 +199,21 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if(str=="="){
             EqualEvent();
         }
-        else if (str == ".") {
+        else if (idt_num && str == ".") {
             DotEvent(str);
         }
         else if (str == "%") {
-            PercentEvent(str);
+            PercentEvent();
         }
     }
 
     // % 이벤트
-    public void PercentEvent(String str) {
-
+    public void PercentEvent() {
+        if (!inlabel.equals("")) {
+            EqualEvent();
+            inlabel += " / 100";
+            EqualEvent();
+        }
     }
 
     // .이벤트
@@ -215,7 +224,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (inlabel.charAt(inlabel.length()-1) == ' ') {
             inlabel += "0.";
         }
-        else {
+        else if (inlabel.charAt(inlabel.length()-1) != '.') {
             inlabel += str;
         }
         textField.setText(inlabel);
@@ -240,13 +249,17 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 inlabel = tmp;
             }
         }
+        idt_num = false;
     }
     // Back 이벤트
     public void BackEvent() {
         if (!inlabel.equals("")){
             try{
                 char tmp = inlabel.charAt(inlabel.length()-2);
-                if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
+                if(inlabel.charAt(inlabel.length()-1)!=' '){
+                  inlabel = inlabel.substring(0, inlabel.length()-1);
+                }
+                else if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
                     inlabel = inlabel.substring(0, inlabel.length()-3);
                 }
             } catch (StringIndexOutOfBoundsException e){
@@ -346,7 +359,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 AddOperator(str);
                 break;
             case 42: // *
-                str = "*";
+                str = "x";
                 AddOperator(str);
                 break;
             case 43: // +
@@ -363,6 +376,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 27: //ESC
                 ClearEvent();
                 break;
+            case 37: //%
+                PercentEvent();
+            break;
         }
     }
 
