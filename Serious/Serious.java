@@ -194,7 +194,17 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if(str=="="){
             EqualEvent();
         }
+        else if (str == ".") {
+            DotEvent(str);
+        }
     }
+
+    // .이벤트
+    public void DotEvent(String str) {
+        inlabel += str;
+        textField.setText(inlabel);
+    }
+
 
     // = 이벤트
     public void EqualEvent() {
