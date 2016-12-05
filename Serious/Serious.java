@@ -17,6 +17,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     JTextField textField;
     private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
     private String su=""; // 현재 입력 중인 숫자
+    boolean idt_num = true;
 
     // 생성자
     public Serious() {
@@ -177,31 +178,32 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        // boolean idt_num = true;
-        if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
+        if(idt_num && (str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
-           str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
+           str.equals("8") || str.equals("9"))){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
-        else if(str=="+" || str=="-" || str=="x" || str=="/" || str=="(" || str==")"){
+        else if(str=="+" || str=="-" || str=="x" || str=="/"){
+            AddOperator(str);
+            idt_num = true;
+        }
+        else if(idt_num && (str=="(" || str==")")){
             AddOperator(str);
         }
         else if(str=="C"){ //C를 눌렀을 때
-          ClearEvent();
+            ClearEvent();
         }
         else if (str == "<-") {
             BackEvent();
         }
         else if(str=="="){
             EqualEvent();
-            // idt_num=false;
         }
-        else if (str == ".") {
+        else if (idt_num && str == ".") {
             DotEvent(str);
         }
         else if (str == "%") {
             PercentEvent();
-            // idt_num=false;
         }
     }
 
@@ -247,6 +249,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 inlabel = tmp;
             }
         }
+        idt_num = false;
     }
     // Back 이벤트
     public void BackEvent() {
