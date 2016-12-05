@@ -201,7 +201,15 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     // .이벤트
     public void DotEvent(String str) {
-        inlabel += str;
+        if (inlabel.equals("")) {
+            inlabel += "0.";
+        }
+        else if (inlabel.charAt(inlabel.length()-1) == ' ') {
+            inlabel += "0.";
+        }
+        else {
+            inlabel += str;
+        }
         textField.setText(inlabel);
     }
 
@@ -317,7 +325,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 AddNumberEvent(keycode);
                 break;
             case 46: // .
-                //
+                str = ".";
+                DotEvent(str);
                 break;
             case 10: // (enter)
                 EqualEvent();
