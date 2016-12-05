@@ -246,7 +246,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         if (!inlabel.equals("")){
             try{
                 char tmp = inlabel.charAt(inlabel.length()-2);
-                if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
+                if(inlabel.charAt(inlabel.length()-1)!=' '){
+                  inlabel = inlabel.substring(0, inlabel.length()-1);
+                }
+                else if (tmp == '+' || tmp == '-' || tmp == '/' || tmp == 'x' || tmp == '(' || tmp == ')') {
                     inlabel = inlabel.substring(0, inlabel.length()-3);
                 }
             } catch (StringIndexOutOfBoundsException e){
@@ -346,7 +349,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 AddOperator(str);
                 break;
             case 42: // *
-                str = "*";
+                str = "x";
                 AddOperator(str);
                 break;
             case 43: // +
