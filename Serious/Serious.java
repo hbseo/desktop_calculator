@@ -222,7 +222,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (inlabel.charAt(inlabel.length()-1) == ' ') {
             inlabel += "0.";
         }
-        else {
+        else if (inlabel.charAt(inlabel.length()-1) != '.') {
             inlabel += str;
         }
         textField.setText(inlabel);
