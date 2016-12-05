@@ -38,7 +38,7 @@ We have already implemented **Standard Function** except **%**
 
 # **Compiling**  
 
-To compile Serious, downloads 'Serious/Serious.java'.
+To compile Serious, downloads 'Serious'.
 Then open your terminal and type 'javac Serious.java'.
 To run the generated class file, type 'java Serious'.
 
