@@ -211,7 +211,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                     tmp = tmp.substring(0, tmp.length() - 2);
                 }
                 textField.setText(tmp);
-                inlabel = "";
+                inlabel = tmp;
             }
         }
     }
