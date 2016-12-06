@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.2
+// v0.6.4
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -220,7 +220,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     public void FacEvent() {
       if (!inlabel.equals("")) {
           EqualEvent();
-          inlabel += " / 100";
+          int num = Integer.parseInt(inlabel);
+          while(--num>0){
+            inlabel = inlabel + " x " + String.valueOf(num);
+          }
           EqualEvent();
       }
     }
@@ -253,9 +256,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     public void EqualEvent() {
         if (!inlabel.equals("")) {
             Calc c = new Calc();
-            char tp = inlabel.charAt(inlabel.length()-2);
-            if (tp == '+' || tp == '-' || tp == '/' || tp == 'x') {
-                inlabel = inlabel.substring(0, inlabel.length()-3);
+            if(inlabel.length() > 2) {
+                char tp = inlabel.charAt(inlabel.length()-2);
+                if (tp == '+' || tp == '-' || tp == '/' || tp == 'x') {
+                    inlabel = inlabel.substring(0, inlabel.length()-3);
+                }
             }
             if (!c.bracketsBalance(inlabel)) {
                 textField.setText("Parenthesis Error");
