@@ -205,6 +205,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (str == "%") {
             PercentEvent();
         }
+        else if (str == "!") {
+            FacEvent();
+        }
     }
 
     // ( ) 이벤트
@@ -213,6 +216,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         textField.setText(inlabel);
     }
 
+    // ! 이벤트
+    public void FacEvent() {
+      if (!inlabel.equals("")) {
+          EqualEvent();
+          inlabel += " / 100";
+          EqualEvent();
+      }
+    }
 
     // % 이벤트
     public void PercentEvent() {
@@ -242,6 +253,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     public void EqualEvent() {
         if (!inlabel.equals("")) {
             Calc c = new Calc();
+            char tp = inlabel.charAt(inlabel.length()-2);
+            if (tp == '+' || tp == '-' || tp == '/' || tp == 'x') {
+                inlabel = inlabel.substring(0, inlabel.length()-3);
+            }
             if (!c.bracketsBalance(inlabel)) {
                 textField.setText("Parenthesis Error");
                 inlabel = "";
