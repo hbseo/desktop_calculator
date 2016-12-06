@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.1
+// v0.6.2
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -385,6 +385,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 break;
             case 37: //%
                 PercentEvent();
+            break;
+            case 40: //(
+                str = "(";
+                BracketEvent(str);
+            break;
+            case 41: //)
+                str = ")";
+                BracketEvent(str);
             break;
         }
     }
