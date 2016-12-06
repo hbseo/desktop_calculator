@@ -188,7 +188,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             idt_num = true;
         }
         else if(idt_num && (str=="(" || str==")")){
-            AddOperator(str);
+            BracketEvent(str);
         }
         else if(str=="C"){ //C를 눌렀을 때
             ClearEvent();
@@ -206,6 +206,13 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             PercentEvent();
         }
     }
+
+    // ( ) 이벤트
+    public void BracketEvent(String str) {
+        inlabel += " "+str+" ";
+        textField.setText(inlabel);
+    }
+
 
     // % 이벤트
     public void PercentEvent() {
