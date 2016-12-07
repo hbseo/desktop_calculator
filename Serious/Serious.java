@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.4
+// v0.6.5
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -192,6 +192,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         else if(str=="C"){ //C를 눌렀을 때
             ClearEvent();
+            idt_num = true;
         }
         else if (str == "<-") {
             BackEvent();
