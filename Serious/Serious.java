@@ -220,11 +220,16 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     public void FacEvent() {
       if (!inlabel.equals("")) {
           EqualEvent();
-          int num = Integer.parseInt(inlabel);
-          while(--num>0){
-            inlabel = inlabel + " x " + String.valueOf(num);
+          try {
+              int num = Integer.parseInt(inlabel);
+              while (--num > 0) {
+                  inlabel = inlabel + " x " + String.valueOf(num);
+
+              }
+              EqualEvent();
+          } catch (NumberFormatException e) {
+              textField.setText("Out of Number Click Clear Button");
           }
-          EqualEvent();
       }
     }
 
@@ -267,13 +272,18 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 inlabel = "";
             } else {
                 String postfixExp = c.postfix(inlabel);
-                Double result = c.result(postfixExp);
-                String tmp = result.toString();
-                if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
-                    tmp = tmp.substring(0, tmp.length() - 2);
+                try{
+                    Double result = c.result(postfixExp);
+                    String tmp = result.toString();
+                    if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
+                        tmp = tmp.substring(0, tmp.length() - 2);
+                    }
+                    textField.setText(tmp);
+                    inlabel = tmp;
+                }catch (NumberFormatException e) {
+                    textField.setText("Out of Number Click Clear Button");
                 }
-                textField.setText(tmp);
-                inlabel = tmp;
+
             }
         }
         idt_num = false;
@@ -296,7 +306,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
-    // Clear 이벤트
+    // Clear 이벤트'
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
