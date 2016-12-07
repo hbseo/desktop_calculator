@@ -223,13 +223,20 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
           EqualEvent();
           try {
               int num = Integer.parseInt(inlabel);
-              while (--num > 0) {
-                  inlabel = inlabel + " x " + String.valueOf(num);
-
+              System.out.println("~~~"+num);
+              if(num > 100){
+                  textField.setText("Exception");
+                  inlabel = "";
               }
-              EqualEvent();
+              else{
+                  while (--num > 0) {
+                      inlabel = inlabel + " x " + String.valueOf(num);
+                  }
+                  EqualEvent();
+              }
           } catch (NumberFormatException e) {
-              textField.setText("Out of Number Click Clear Button");
+              textField.setText("Exception");
+              inlabel = "";
           }
       }
     }
@@ -307,7 +314,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
-    // Clear 이벤트'
+    // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
@@ -324,6 +331,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                             inlabel = inlabel.substring(0, inlabel.length() - 3);
                         }
                     } catch (StringIndexOutOfBoundsException e) {
+                        inlabel = "";
                         System.out.println("Exception");
                     }
                 }
@@ -424,6 +432,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 41: //)
                 str = ")";
                 BracketEvent(str);
+            break;
+            case 33: //!
+                FacEvent();
             break;
         }
     }
