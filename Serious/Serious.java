@@ -209,7 +209,18 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (str == "!") {
             FacEvent();
         }
+        else if (str == "MOD") {
+            MODEvent(str);
+        }
     }
+
+    // MOD 이벤트
+    public void MODEvent(String str) {
+        EqualEvent();
+        inlabel += " "+str+" ";
+        textField.setText(inlabel);
+    }
+
 
     // ( ) 이벤트
     public void BracketEvent(String str) {
@@ -223,7 +234,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
           EqualEvent();
           try {
               int num = Integer.parseInt(inlabel);
-              System.out.println("~~~"+num);
+//              System.out.println("~~~"+num);
               if(num > 100){
                   textField.setText("Exception");
                   inlabel = "";
