@@ -49,4 +49,4 @@ To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
 
 ----------------------
-Licensed under [GPL-2.0](https://github.com/alchon/simpsons/blob/master/LICENSE)
+Licensed under [GPL-3.0](https://github.com/alchon/simpsons/blob/master/LICENSE)
