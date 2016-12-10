@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.5
+// v0.6.6
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -447,7 +447,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 33: //!
                 FacEvent();
                 break;
-            case 77: //
+            case 35: //#
                 str = "MOD";
                 MODEvent(str);
                 break;
