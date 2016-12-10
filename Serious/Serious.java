@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.6
+// v0.6.7
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -211,12 +211,38 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         else if (str == "MOD") {
             MODEvent(str);
+            idt_num = true;
         }
+        else if (str == "P") {
+            PEvent();
+            idt_num = true;
+        }
+    }
+
+    // P 이벤트
+    public void PEvent() {
+        EqualEvent();
+        int num = Integer.parseInt(inlabel);
+        int[] prime = new int[10000000];
+        prime[0]=1; prime[1]=1;
+        double limit = Math.sqrt(num);
+        for(int i=2;i<limit;i++){
+            if(prime[i]==0){
+                // System.out.println(i);
+                for(int j=i*i;j<=num;j+=i){
+                    prime[j]=1;
+                }
+            }
+        }
+        if(prime[num]==0)
+            textField.setText("Yes");
+        else
+            textField.setText("No");
+        inlabel = "";
     }
 
     // MOD 이벤트
     public void MODEvent(String str) {
-        EqualEvent();
         inlabel += " "+str+" ";
         textField.setText(inlabel);
     }
@@ -234,7 +260,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
           EqualEvent();
           try {
               int num = Integer.parseInt(inlabel);
-//              System.out.println("~~~"+num);
               if(num > 100){
                   textField.setText("Exception");
                   inlabel = "";
@@ -447,9 +472,12 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 33: //!
                 FacEvent();
                 break;
-            case 35: //#
+            case 77: //M
                 str = "MOD";
                 MODEvent(str);
+                break;
+            case 80: //P
+                PEvent();
                 break;
         }
     }
