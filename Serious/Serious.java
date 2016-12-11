@@ -246,23 +246,29 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // P 이벤트
     public void PEvent() {
         EqualEvent();
-        int num = Integer.parseInt(inlabel);
-        int[] prime = new int[10000000];
-        prime[0]=1; prime[1]=1;
-        double limit = Math.sqrt(num);
-        for(int i=2;i<limit;i++){
-            if(prime[i]==0){
-                // System.out.println(i);
-                for(int j=i*i;j<=num;j+=i){
-                    prime[j]=1;
+        try{
+            int num = Integer.parseInt(inlabel);
+            int[] prime = new int[10000000];
+            prime[0]=1; prime[1]=1;
+            double limit = Math.sqrt(num);
+            for(int i=2;i<limit;i++){
+                if(prime[i]==0){
+                    // System.out.println(i);
+                    for(int j=i*i;j<=num;j+=i){
+                        prime[j]=1;
+                    }
                 }
             }
+            if(prime[num]==0)
+                textField.setText("Yes");
+            else
+                textField.setText("No");
+            inlabel = "";
+        }catch (NumberFormatException e){
+            inlabel = "";
+            textField.setText("Inavnlid");
         }
-        if(prime[num]==0)
-            textField.setText("Yes");
-        else
-            textField.setText("No");
-        inlabel = "";
+
     }
 
     // MOD 이벤트
