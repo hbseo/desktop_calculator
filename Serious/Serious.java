@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.8
+// v0.6.9
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -251,9 +251,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             int[] prime = new int[10000000];
             prime[0]=1; prime[1]=1;
             double limit = Math.sqrt(num);
-            for(int i=2;i<limit;i++){
+            for(int i=2;i<=limit;i++){
                 if(prime[i]==0){
-                    // System.out.println(i);
                     for(int j=i*i;j<=num;j+=i){
                         prime[j]=1;
                     }
