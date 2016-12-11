@@ -238,8 +238,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 //                System.out.println(tmp[i]);
             }
             double avg = sum / i;
-            inlabel =String.valueOf(avg);
-            textField.setText(inlabel);
+            inlabel = String.valueOf(avg);
+            EqualEvent(); // 답이 정수일경우 .0 이 생기는걸 방지하기위해 이거씀
         }
     }
 
@@ -496,12 +496,18 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 33: //!
                 FacEvent();
                 break;
+            case 109: // m
             case 77: //M
                 str = "MOD";
                 MODEvent(str);
                 break;
+            case 112: // p
             case 80: //P
                 PEvent();
+                break;
+            case 97: // a
+            case 65: // A
+                AVGEvent();
                 break;
         }
     }
