@@ -266,7 +266,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             inlabel = "";
         }catch (NumberFormatException e){
             inlabel = "";
-            textField.setText("Inavnlid");
+            textField.setText("Invalid");
         }
 
     }
