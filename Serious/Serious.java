@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.7
+// v0.6.8
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -216,6 +216,30 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if (str == "P") {
             PEvent();
             idt_num = true;
+        }
+        else if (str == "AVG") {
+            AVGEvent();
+        }
+    }
+
+    // AVG 이벤트
+    public void AVGEvent() {
+        if (inlabel.contains("-") || inlabel.contains("x") || inlabel.contains("/") ||
+                inlabel.contains("MOD")) {
+            inlabel = "";
+            textField.setText("Invalid Number");
+        }
+        else {
+            String[] tmp = inlabel.split(" \\+ ");
+            double i, sum=0;
+
+            for (i=0; i<tmp.length; i++) {
+                sum += Integer.parseInt(tmp[(int)i]);
+//                System.out.println(tmp[i]);
+            }
+            double avg = sum / i;
+            inlabel =String.valueOf(avg);
+            textField.setText(inlabel);
         }
     }
 
