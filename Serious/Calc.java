@@ -55,6 +55,7 @@ class Calc{
                 case '-':
                 case 'x':
                 case '/':
+                case 'm':
                     if(endOfNumber == true){
                         postfixExp = postfixExp.concat(" ");
                         endOfNumber = false;
@@ -128,6 +129,10 @@ class Calc{
                     value = new Double(((Double)stk.pop()).doubleValue() / buffer.doubleValue());
                     stk.push(value);
                     break;
+                case 'm':
+                    buffer = new Double(((Double)stk.pop()).doubleValue());
+                    value = new Double(((Double) stk.pop()).doubleValue() % buffer.doubleValue());
+                    stk.push(value);
                 }
             }
             return (Double)stk.peek();
@@ -144,6 +149,7 @@ class Calc{
                 break;
             case 'x':
             case '/':
+            case 'm':
                 prec = 2;
                 break;
         }

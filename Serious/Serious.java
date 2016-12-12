@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.6.9
+// v0.7.0
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -210,7 +210,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             FacEvent();
         }
         else if (str == "MOD") {
-            MODEvent(str);
+            MODEvent();
             idt_num = true;
         }
         else if (str == "P") {
@@ -271,7 +271,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
 
     // MOD 이벤트
-    public void MODEvent(String str) {
+    public void MODEvent() {
+        String str = "m";
         inlabel += " "+str+" ";
         textField.setText(inlabel);
     }
@@ -503,8 +504,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 break;
             case 109: // m
             case 77: //M
-                str = "MOD";
-                MODEvent(str);
+                MODEvent();
                 break;
             case 112: // p
             case 80: //P
