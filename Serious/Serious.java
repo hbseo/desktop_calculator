@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.7.0
+// v0.7.1
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -178,21 +178,22 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        if(idt_num && (str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
+        if(idt_num){
+          System.out.println("~~");
+        }
+        if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
-           str.equals("8") || str.equals("9"))){ //숫자를 눌렀을 때
+           str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
             AddNumberEvent(str);
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/"){
             AddOperator(str);
-            idt_num = true;
         }
         else if(idt_num && (str=="(" || str==")")){
             BracketEvent(str);
         }
         else if(str=="C"){ //C를 눌렀을 때
             ClearEvent();
-            idt_num = true;
         }
         else if (str == "<-") {
             BackEvent();
@@ -211,11 +212,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         else if (str == "MOD") {
             MODEvent();
-            idt_num = true;
         }
         else if (str == "P") {
             PEvent();
-            idt_num = true;
         }
         else if (str == "AVG") {
             AVGEvent();
@@ -275,6 +274,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         String str = "m";
         inlabel += " "+str+" ";
         textField.setText(inlabel);
+        idt_num = true;
     }
 
 
@@ -359,8 +359,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 }
 
             }
+            idt_num = false;
         }
-        idt_num = false;
     }
     // Back 이벤트
     public void BackEvent() {
@@ -384,6 +384,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
+        idt_num = true;
     }
     // 연산자 이벤트
     public void AddOperator(String str) {
@@ -407,20 +408,25 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }finally {
                 textField.setText(inlabel);
             }
+            idt_num = true;
         }
     }
 
     // 숫자 이벤트
     public void AddNumberEvent(String str) {
-        inlabel += str;
-        textField.setText(inlabel);
+        if(idt_num) {
+            inlabel += str;
+            textField.setText(inlabel);
+        }
     }
 
     public void AddNumberEvent(int num) {
-        int tmp = num - '0';
-        String str = String.valueOf(tmp);
-        inlabel += str;
-        textField.setText(inlabel);
+        if(idt_num) {
+            int tmp = num - '0';
+            String str = String.valueOf(tmp);
+            inlabel += str;
+            textField.setText(inlabel);
+        }
     }
 
     // 키보드 이벤트 처리
