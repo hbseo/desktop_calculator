@@ -502,16 +502,13 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             case 33: //!
                 FacEvent();
                 break;
-            case 109: // m
-            case 77: //M
+            case 109: case 77: // m, M
                 MODEvent();
                 break;
-            case 112: // p
-            case 80: //P
+            case 112:case 80: // p, P
                 PEvent();
                 break;
-            case 97: // a
-            case 65: // A
+            case 97:case 65: // a, A
                 AVGEvent();
                 break;
         }
