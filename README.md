@@ -35,7 +35,7 @@ We have already implemented **Standard Function**
 
 # **Next Version**
 
-- **Calculate** : Serious has to be able to do calculate in addtional function
+- **Bug Fix** : We will fix hidden bugs
 
 
 # **Compiling**
