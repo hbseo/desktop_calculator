@@ -50,5 +50,9 @@ To run the generated class file, type 'java Serious'.
 To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
 
+# **Team** - Simpsons
+-  **alchon** : Hyeon Beom Seo
+- **hellogaon** : Sung Wo Park
+
 ----------------------
 Licensed under [GPL-3.0](https://github.com/alchon/simpsons/blob/master/LICENSE)
