@@ -5,7 +5,9 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 # **Screenshots**
 
-![](http://imageshack.com/a/img921/4945/3EX9NE.png "")
+![](http://imageshack.com/a/img921/4945/3EX9NE.png)
+![](http://imageshack.com/a/img922/9783/Gnxmj0.png)
+![](https://imageshack.com/i/pnlFyYbcp)
 
 # **Standard Function**
 
@@ -26,9 +28,9 @@ We have already implemented **Standard Function**
 
 # **Additional Function**
 
-- **AVG** : AVERAGE  
-- **!** : FACTORIAL  
-- **P** : DISTINCTION PRIME NUMBER - RETURN TRUE OR FALSE  
+- **AVG** : AVERAGE
+- **!** : FACTORIAL
+- **P** : DISTINCTION PRIME NUMBER - RETURN TRUE OR FALSE
 - **MOD** : REMAINDER
 
 # **Next Version**
@@ -36,7 +38,7 @@ We have already implemented **Standard Function**
 - **Calculate** : Serious has to be able to do calculate in addtional function
 
 
-# **Compiling**  
+# **Compiling**
 
 To compile Serious, downloads 'Serious'.
 Then open your terminal and type 'javac Serious.java'.
@@ -45,7 +47,7 @@ To run the generated class file, type 'java Serious'.
 
 # **Bugs & Feedback**
 
-To report bugs, please create a GitHub issue.  
+To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
 
 ----------------------
