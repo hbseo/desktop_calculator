@@ -7,7 +7,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 ![](http://imageshack.com/a/img921/4945/3EX9NE.png)
 ![](http://imageshack.com/a/img922/9783/Gnxmj0.png)
-![](https://imageshack.com/i/pnlFyYbcp)
+![](http://imageshack.com/a/img923/6991/lFyYbc.png)
 
 # **Standard Function**
 
