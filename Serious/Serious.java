@@ -178,9 +178,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
-        if(idt_num){
-          System.out.println("~~");
-        }
         if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
            str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
@@ -234,7 +231,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
             for (i=0; i<tmp.length; i++) {
                 sum += Integer.parseInt(tmp[(int)i]);
-//                System.out.println(tmp[i]);
             }
             double avg = sum / i;
             inlabel = String.valueOf(avg);
