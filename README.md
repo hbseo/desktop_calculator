@@ -5,8 +5,15 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 
 
 # **Team** - Simpsons
--  **alchon** : Hyeon Beom Seo
-- **hellogaon** : Sung Woo Park
+-  **alchon** : Hyeon Beom Seo  
+- **hellogaon** : Sung Woo Park  
+
+# **Role**
+#### **Collaboration** : Development, Management, Maintain, Reading
+- **alchon** :  Design, Documentation
+- **hellogaon** :  Translation, Algorithm  
+
+ 
 
 
 # **Screenshots**
