@@ -40,9 +40,9 @@ We have already implemented **Standard Function**
 
 # **Execute**
 
-To execute Serious, downloads 'Serious.jar'.
-Then open 'Serious.jar'.
-And launch Serious.class
+To execute Serious, downloads 'Serious.jar'.  
+Then open 'Serious.jar'.  
+And launch Serious.class  
 
 
 # **Bugs & Feedback**
