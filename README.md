@@ -38,11 +38,11 @@ We have already implemented **Standard Function**
 - **Bug Fix** : We will fix hidden bugs
 
 
-# **Compiling**
+# **Execute**
 
-To compile Serious, downloads 'Serious'.
-Then open your terminal and type 'javac Serious.java'.
-To run the generated class file, type 'java Serious'.
+To execute Serious, downloads 'Serious.jar'.
+Then open 'Serious.jar'.
+And launch Serious.class
 
 
 # **Bugs & Feedback**
