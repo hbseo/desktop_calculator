@@ -330,12 +330,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // = 이벤트
     public String stos(String str){
         String afterE = "";
+        String str2 = "";
         int e;
         int len = str.length();
         int start = str.indexOf("E");
         if(start==-1)
             return str;
         if(start!=-1){
+          System.out.println(str);
             for(int i=start+1;i<len;i++){
                 afterE+=str.charAt(i);
             }
@@ -343,6 +345,12 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             str = str.substring(0, start);
             str = str.replace(".", "");
             len = str.length();
+            if(len>e){
+              str2 = str.substring(e+1,len);
+              str = str.substring(0,e+1);
+              str += '.';
+              str += str2;
+            }
             for(int i=0;i<e+1-len;i++){
                 str+='0';
             }
