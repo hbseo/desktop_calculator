@@ -36,7 +36,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 - **)** : RIGHT RARENTHESIS
 - **<-** : DELETE
 
-We have already implemented **Standard Function**
+
 
 
 # **Additional Function**
