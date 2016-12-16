@@ -328,6 +328,27 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
 
     // = 이벤트
+    public String stos(String str){
+        String afterE = "";
+        int e;
+        int len = str.length();
+        int start = str.indexOf("E");
+        if(start==-1)
+            return str;
+        if(start!=-1){
+            for(int i=start+1;i<len;i++){
+                afterE+=str.charAt(i);
+            }
+            e = Integer.parseInt(afterE);
+            str = str.substring(0, start);
+            str = str.replace(".", "");
+            len = str.length();
+            for(int i=0;i<e+1-len;i++){
+                str+='0';
+            }
+        }
+        return str;
+    }
     public void EqualEvent() {
         if (!inlabel.equals("")) {
             Calc c = new Calc();
@@ -344,7 +365,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 String postfixExp = c.postfix(inlabel);
                 try{
                     Double result = c.result(postfixExp);
-                    String tmp = result.toString();
+                    // String tmp = dtos(result);
+                    String tmp = Double.toString(result);
+                    tmp = stos(tmp);
                     if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
                         tmp = tmp.substring(0, tmp.length() - 2);
                     }
