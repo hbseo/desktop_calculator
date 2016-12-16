@@ -426,7 +426,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                         }
                     } catch (StringIndexOutOfBoundsException e) {
                         inlabel = "";
-                        System.out.println("Exception");
+                        textField.setText("Exception");
                     }
                 }
                 inlabel += " " + str + " ";
