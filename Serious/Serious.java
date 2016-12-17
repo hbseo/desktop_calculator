@@ -1,3 +1,10 @@
+/**
+ * Serious
+ * @author alchon, hellogaon
+ */
+
+
+
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
@@ -375,7 +382,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 String postfixExp = c.postfix(inlabel);
                 try{
                     Double result = c.result(postfixExp);
-                    // String tmp = dtos(result);
                     String tmp = Double.toString(result);
                     tmp = stos(tmp);
                     if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
