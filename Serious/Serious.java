@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
-// v0.7.1
+// v0.7.2
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
     JPanel panel;
@@ -13,11 +13,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     JButton [] num_btn = new JButton[10];
     JButton Primebtn, MODbtn, AVGbtn, factorialbtn, deletebtn, clearbtn,
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
-            minusbtn, plusbtn, equalbtn, dotbtn;
+            minusbtn, plusbtn, equalbtn, dotbtn; // 버튼 생성
     JTextField textField;
-    private String inlabel=""; // =입력 전까지 라벨에 들어 갈 식
-    private String su=""; // 현재 입력 중인 숫자
-    boolean idt_num = true;
+    private String inlabel=""; // = 계산 식 String
+    boolean idt_num = true; // 0~9 숫자 입력 가능 여부
 
     // 생성자
     public Serious() {
@@ -43,8 +42,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     // 텍스트 필드 설정
     private void AddTextField(){
         textField = new JTextField("");
-        textField.setHorizontalAlignment(JTextField.RIGHT);   // 우측정렬
-        textField.setEditable(false); 		// 텍스트필드창에 텍스트쓰지못하게 잠금
+        textField.setHorizontalAlignment(JTextField.RIGHT); // 우측 정렬
+        textField.setEditable(false); // 텍스트필드 창에 텍스트 쓰지 못하게 잠금
         textField.setBounds(0,0,320,60);
         panel.add(textField);
     }
@@ -174,13 +173,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         panel.add(MODbtn);
         panel.add(AVGbtn);
         panel.add(factorialbtn);
-
     }
+
+    //버튼이 눌렸을 때의 함수
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
         if(str.equals("0") || str.equals("1") || str.equals("2") || str.equals("3") ||
            str.equals("4") || str.equals("5") || str.equals("6") || str.equals("7") ||
-           str.equals("8") || str.equals("9")){ //숫자를 눌렀을 때
+           str.equals("8") || str.equals("9")){
             AddNumberEvent(str);
         }
         else if(str=="+" || str=="-" || str=="x" || str=="/"){
@@ -189,7 +189,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         else if(idt_num && (str=="(" || str==")")){
             BracketEvent(str);
         }
-        else if(str=="C"){ //C를 눌렀을 때
+        else if(str=="C"){
             ClearEvent();
         }
         else if (str == "<-") {
@@ -327,7 +327,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
 
 
-    // = 이벤트
+    // 문자열 숫자에서 e를 삭제하기 위한 함수
     public String stos(String str){
         String afterE = "";
         String str2 = "";
@@ -357,6 +357,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         return str;
     }
+
+    // = 이벤트
     public void EqualEvent() {
         if (!inlabel.equals("")) {
             Calc c = new Calc();
@@ -389,6 +391,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             idt_num = false;
         }
     }
+
     // Back 이벤트
     public void BackEvent() {
         if (!inlabel.equals("")){
@@ -407,12 +410,14 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             }
         }
     }
+
     // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
         idt_num = true;
     }
+
     // 연산자 이벤트
     public void AddOperator(String str) {
         if (!inlabel.equals("")) {
@@ -446,7 +451,6 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             textField.setText(inlabel);
         }
     }
-
     public void AddNumberEvent(int num) {
         if(idt_num) {
             int tmp = num - '0';
@@ -547,11 +551,9 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
-
     public static void main(String[] args) {
         new Serious();
     }
-
 
     @Override
     public void keyTyped(KeyEvent e) {}
