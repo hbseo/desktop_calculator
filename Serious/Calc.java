@@ -1,14 +1,14 @@
 /**
-* Calc.java
-*스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
-*후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
-* 수식등의 괄호가 맞는지 확인하는 메소드
-*/
-class Calc{
+ * Calc.java
+ * 스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
+ * 후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
+ * 수식등의 괄호가 맞는지 확인하는 메소드
+ */
+public class Calc{
   //-------------------------------------------------------------------
   //스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
   //-------------------------------------------------------------------
-    String postfix(String infixExp){
+    public String postfix(String infixExp){
         Double value;
         //숫자의 끝임을 알려주는 flag
         //소수점 수식도 처리하기 위해서...
@@ -84,7 +84,7 @@ class Calc{
       //----------------------------------------------------------------------
       //후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
       //----------------------------------------------------------------------
-        Double result(String postfixExp){
+     public Double result(String postfixExp){
         System.out.println(postfixExp);
         Double value, buffer;
         String temp = new String();
@@ -140,7 +140,7 @@ class Calc{
       //------------------------------------------
       //연산자의 우선순위를 Return
       //------------------------------------------
-        int getPrec(char op) {
+     public int getPrec(char op) {
         int prec = 0;
         switch (op){
             case '+':
@@ -158,7 +158,7 @@ class Calc{
         //-----------------------------------------
         //괄호의 정확성 검사
      //-----------------------------------------
-    static boolean bracketsBalance (String exp) {
+    public static boolean bracketsBalance (String exp) {
         ArrayStack stk = new ArrayStack(exp.length() +1);
         for(int i=0;i<exp.length();i++){
           //Scan across the expression

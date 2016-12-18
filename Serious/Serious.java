@@ -1,10 +1,3 @@
-/**
- * Serious
- * @author alchon, hellogaon
- */
-
-
-
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
@@ -12,9 +5,17 @@ import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 
+
+/**
+ * Serious.java
+ * @author alchon
+ * @author hellogaon
+ */
+
 // v0.7.2
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
+
     JPanel panel;
     JFrame frame;
     JButton [] num_btn = new JButton[10];
@@ -22,8 +23,13 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             dividebtn, multiplebtn, percentbtn, leftbracketbtn, rightbracketbtn,
             minusbtn, plusbtn, equalbtn, dotbtn; // 버튼 생성
     JTextField textField;
-    private String inlabel=""; // = 계산 식 String
+    public String inlabel=""; // = 계산 식 String
     boolean idt_num = true; // 0~9 숫자 입력 가능 여부
+
+    /**
+     * class Serious Constructor
+     * realize GUI
+     */
 
     // 생성자
     public Serious() {
@@ -39,23 +45,37 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         setVisible(true);
     }
 
+    /**
+     * Set Panel Method
+     */
+
     // 패널 설정
-    private void AddPanel() {
+    public void AddPanel() {
         panel = new JPanel();
         panel.setLayout(null); //패널의 Layout을 NULL
         panel.setBounds(0, 0, 320, 500); //패널의 크기 및 위치 지정 (x,y로 부터 넓이(width, 높이(height))
     }
 
+    /**
+     * Set TextField Method
+     */
+
     // 텍스트 필드 설정
-    private void AddTextField(){
+    public void AddTextField(){
         textField = new JTextField("");
         textField.setHorizontalAlignment(JTextField.RIGHT); // 우측 정렬
         textField.setEditable(false); // 텍스트필드 창에 텍스트 쓰지 못하게 잠금
         textField.setBounds(0,0,320,60);
         panel.add(textField);
     }
+
+    /**
+     * Set Button Method
+     * Set Listener
+     */
+
     // 버튼 설정
-    private void AddButton() {
+    public void AddButton() {
         for (int i=0; i<10; i++)
             num_btn[i] = new JButton(String.valueOf(i));
         Primebtn = new JButton("P");
@@ -182,6 +202,12 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         panel.add(factorialbtn);
     }
 
+
+    /**
+     * Click Button Event Method
+     * @param e
+     */
+
     //버튼이 눌렸을 때의 함수
     public void actionPerformed(ActionEvent e){
         String str=e.getActionCommand();
@@ -225,6 +251,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+    /**
+     * Calculate Average Method
+     */
+
     // AVG 이벤트
     public void AVGEvent() {
         if (inlabel.contains("-") || inlabel.contains("x") || inlabel.contains("/") ||
@@ -244,6 +274,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             EqualEvent(); // 답이 정수일경우 .0 이 생기는걸 방지하기위해 이거씀
         }
     }
+
+    /**
+     * Calculate Prime number or not
+     * Yes or No
+     */
 
     // P 이벤트
     public void PEvent() {
@@ -272,6 +307,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     }
 
+    /**
+     * Calculate Modular Method
+     */
+
     // MOD 이벤트
     public void MODEvent() {
         String str = "m";
@@ -280,12 +319,20 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         idt_num = true;
     }
 
+    /**
+     * Add Bracket Method
+     * @param str
+     */
 
     // ( ) 이벤트
     public void BracketEvent(String str) {
         inlabel += " "+str+" ";
         textField.setText(inlabel);
     }
+
+    /**
+     * Calculate Factorial Method
+     */
 
     // ! 이벤트
     public void FacEvent() {
@@ -310,6 +357,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
       }
     }
 
+    /**
+     * Calculate Percent Method
+     */
+
     // % 이벤트
     public void PercentEvent() {
         if (!inlabel.equals("")) {
@@ -318,6 +369,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             EqualEvent();
         }
     }
+
+    /**
+     * Add Dot Method
+     * @param str
+     */
 
     // .이벤트
     public void DotEvent(String str) {
@@ -333,6 +389,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         textField.setText(inlabel);
     }
 
+    /**
+     * To remove 'E' Method
+     * @param str
+     * @return String str
+     */
 
     // 문자열 숫자에서 e를 삭제하기 위한 함수
     public String stos(String str){
@@ -364,6 +425,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
         return str;
     }
+
+    /**
+     * Calculate Method
+     */
 
     // = 이벤트
     public void EqualEvent() {
@@ -398,6 +463,10 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+    /**
+     * Delete Method
+     */
+
     // Back 이벤트
     public void BackEvent() {
         if (!inlabel.equals("")){
@@ -417,12 +486,21 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+    /**
+     * Clear Method
+     */
+
     // Clear 이벤트
     public void ClearEvent() {
         inlabel = "";
         textField.setText(inlabel);
         idt_num = true;
     }
+
+    /**
+     * Add Operator Method
+     * @param str
+     */
 
     // 연산자 이벤트
     public void AddOperator(String str) {
@@ -450,6 +528,12 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         }
     }
 
+    /**
+     * @see #AddNumberEvent(int)
+     * Add Number Method
+     * @param str
+     */
+
     // 숫자 이벤트
     public void AddNumberEvent(String str) {
         if(idt_num) {
@@ -465,6 +549,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             textField.setText(inlabel);
         }
     }
+
+    /**
+     * Keyboard Event Method
+     * @param e
+     */
 
     // 키보드 이벤트 처리
     @Override
@@ -556,6 +645,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                 break;
         }
     }
+
+    /**
+     * Main Method
+     * @param args
+     */
 
     public static void main(String[] args) {
         new Serious();
