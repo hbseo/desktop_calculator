@@ -1,13 +1,15 @@
 /**
  * Calc.java
- * 스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
- * 후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
- * 수식등의 괄호가 맞는지 확인하는 메소드
+ * A method to convert infix to postfix.
+ * A method to use postfix operation using stack.
+ * A method to check parenthesis is correct.
  */
 public class Calc{
-  //-------------------------------------------------------------------
-  //스택을 이용하여 중위표현을 후위표현으로 바꾸는 메소드
-  //-------------------------------------------------------------------
+
+    /**
+    * A method to convert infix to postfix.
+    @param infixExp
+    */
     public String postfix(String infixExp){
         Double value;
         //숫자의 끝임을 알려주는 flag
@@ -81,9 +83,10 @@ public class Calc{
             System.out.println(postfixExp);
             return postfixExp;
         }
-      //----------------------------------------------------------------------
-      //후위표기 수식을 스택을 이용한 연산을 수행하는 메소드
-      //----------------------------------------------------------------------
+        /**
+        * A method to use postfix operation using stack.
+        @param postfixExp
+        */
      public Double result(String postfixExp){
         System.out.println(postfixExp);
         Double value, buffer;
@@ -155,9 +158,10 @@ public class Calc{
         }
         return prec;
     }
-        //-----------------------------------------
-        //괄호의 정확성 검사
-     //-----------------------------------------
+    /**
+    * A method to check parenthesis is correct.
+    @param exp
+    */
     public static boolean bracketsBalance (String exp) {
         ArrayStack stk = new ArrayStack(exp.length() +1);
         for(int i=0;i<exp.length();i++){
