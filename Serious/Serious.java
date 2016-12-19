@@ -13,7 +13,7 @@ import java.lang.*;
  * @author hellogaon
  */
 
-// v0.7.2
+// v1.0
 
 public class Serious extends JFrame implements ActionListener, KeyListener{
 
