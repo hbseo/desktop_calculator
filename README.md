@@ -64,4 +64,4 @@ To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
 
 ----------------------
-Licensed under [GPL-3.0](https://github.com/alchon/simpsons/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-GPLv3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
