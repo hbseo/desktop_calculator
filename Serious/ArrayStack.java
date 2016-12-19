@@ -1,3 +1,7 @@
+/**
+ * Stack
+ */
+
 public class ArrayStack implements Stack{
     int top;         // current top of stack
     Object [] stack;   // element array

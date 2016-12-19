@@ -7,9 +7,10 @@
 public class Calc{
 
     /**
-    * A method to convert infix to postfix.
-    @param infixExp
-    */
+     * A method to convert infix to postfix.
+     * @param infixExp String
+     * @return postfix
+     */
     public String postfix(String infixExp){
         Double value;
         //숫자의 끝임을 알려주는 flag
@@ -83,11 +84,13 @@ public class Calc{
             System.out.println(postfixExp);
             return postfixExp;
         }
-        /**
-        * A method to use postfix operation using stack.
-        @param postfixExp
-        */
-     public Double result(String postfixExp){
+
+    /**
+     * A method to use postfix operation using stack.
+     * @param postfixExp String
+     * @return (Double)stk.peek()
+     */
+    public Double result(String postfixExp){
         System.out.println(postfixExp);
         Double value, buffer;
         String temp = new String();
@@ -140,9 +143,17 @@ public class Calc{
             }
             return (Double)stk.peek();
         }
+
+
       //------------------------------------------
       //연산자의 우선순위를 Return
       //------------------------------------------
+
+    /**
+     * Return Operator priority
+     * @param op char
+     * @return prec
+     */
      public int getPrec(char op) {
         int prec = 0;
         switch (op){
@@ -158,10 +169,12 @@ public class Calc{
         }
         return prec;
     }
+
     /**
-    * A method to check parenthesis is correct.
-    @param exp
-    */
+     * A method to check parenthesis is correct.
+     * @param exp String
+     * @return stk.isEmpty()
+     */
     public static boolean bracketsBalance (String exp) {
         ArrayStack stk = new ArrayStack(exp.length() +1);
         for(int i=0;i<exp.length();i++){

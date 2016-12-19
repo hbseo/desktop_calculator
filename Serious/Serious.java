@@ -8,6 +8,7 @@ import java.lang.*;
 
 /**
  * Serious.java
+ * Main
  * @author alchon
  * @author hellogaon
  */
@@ -205,7 +206,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Click Button Event Method
-     * @param e
+     * @param e ActionEvent
      */
 
     //버튼이 눌렸을 때의 함수
@@ -321,7 +322,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Add Bracket Method
-     * @param str
+     * @param str String
      */
 
     // ( ) 이벤트
@@ -372,7 +373,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Add Dot Method
-     * @param str
+     * @param str String
      */
 
     // .이벤트
@@ -391,7 +392,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * To remove 'E' Method
-     * @param str
+     * @param str String
      * @return String str
      */
 
@@ -499,7 +500,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Add Operator Method
-     * @param str
+     * @param str String
      */
 
     // 연산자 이벤트
@@ -529,9 +530,8 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
     }
 
     /**
-     * @see #AddNumberEvent(int)
      * Add Number Method
-     * @param str
+     * @param str String
      */
 
     // 숫자 이벤트
@@ -541,6 +541,11 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             textField.setText(inlabel);
         }
     }
+
+    /**
+     * Add Number Method
+     * @param num int
+     */
     public void AddNumberEvent(int num) {
         if(idt_num) {
             int tmp = num - '0';
@@ -552,7 +557,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Keyboard Event Method
-     * @param e
+     * @param e KeyEvent
      */
 
     // 키보드 이벤트 처리
@@ -648,7 +653,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
 
     /**
      * Main Method
-     * @param args
+     * @param args String[]
      */
 
     public static void main(String[] args) {
