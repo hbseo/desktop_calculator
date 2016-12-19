@@ -4,7 +4,7 @@
 is a calculator with a few simple functions, such as plus, minus, times, divided by, remainder, factorial, and so on.
 
 [![License](https://img.shields.io/badge/license-GPLv3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
-[![Laguage](https://img.shields.io/badge/language-JAVA-green.svg)](https://www.oracle.com/index.html)
+[![Laguage](https://img.shields.io/badge/language-JAVA-red.svg)](https://www.oracle.com/index.html)
 # **Team** - Simpsons
 -  **alchon** : Hyeon Beom Seo  
 - **hellogaon** : Sung Woo Park  
