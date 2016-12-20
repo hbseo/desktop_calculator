@@ -261,18 +261,22 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
         if (inlabel.contains("-") || inlabel.contains("x") || inlabel.contains("/") ||
                 inlabel.contains("MOD")) {
             inlabel = "";
-            textField.setText("Invalid Number");
+            textField.setText("Invalid");
         }
         else {
             String[] tmp = inlabel.split(" \\+ ");
             double i, sum=0;
-
-            for (i=0; i<tmp.length; i++) {
-                sum += Integer.parseInt(tmp[(int)i]);
+            try {
+                for (i = 0; i < tmp.length; i++) {
+                    sum += Integer.parseInt(tmp[(int) i]);
+                }
+                double avg = sum / i;
+                inlabel = String.valueOf(avg);
+                EqualEvent(); // 답이 정수일경우 .0 이 생기는걸 방지하기위해 이거씀
+            }catch (NumberFormatException e) {
+                textField.setText("Invalid");
+                inlabel = "";
             }
-            double avg = sum / i;
-            inlabel = String.valueOf(avg);
-            EqualEvent(); // 답이 정수일경우 .0 이 생기는걸 방지하기위해 이거씀
         }
     }
 
@@ -342,7 +346,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
           try {
               int num = Integer.parseInt(inlabel);
               if(num > 100){
-                  textField.setText("Exception");
+                  textField.setText("Invalid");
                   inlabel = "";
               }
               else{
@@ -352,7 +356,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                   EqualEvent();
               }
           } catch (NumberFormatException e) {
-              textField.setText("Exception");
+              textField.setText("Invalid");
               inlabel = "";
           }
       }
@@ -447,16 +451,22 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
             } else {
                 String postfixExp = c.postfix(inlabel);
                 try{
-                    Double result = c.result(postfixExp);
-                    String tmp = Double.toString(result);
-                    tmp = stos(tmp);
-                    if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
-                        tmp = tmp.substring(0, tmp.length() - 2);
+                    try {
+                        Double result = c.result(postfixExp);
+                        String tmp = Double.toString(result);
+                        tmp = stos(tmp);
+                        if (tmp.substring(tmp.length() - 2, tmp.length()).equals(".0")) {
+                            tmp = tmp.substring(0, tmp.length() - 2);
+                        }
+                        textField.setText(tmp);
+                        inlabel = tmp;
+                    }catch (NullPointerException e) {
+                        textField.setText("Invalid");
+                        inlabel="";
                     }
-                    textField.setText(tmp);
-                    inlabel = tmp;
                 }catch (NumberFormatException e) {
-                    textField.setText("Out of Number Click Clear Button");
+                    textField.setText("Invalid");
+                    inlabel = "";
                 }
 
             }
@@ -516,7 +526,7 @@ public class Serious extends JFrame implements ActionListener, KeyListener{
                         }
                     } catch (StringIndexOutOfBoundsException e) {
                         inlabel = "";
-                        textField.setText("Exception");
+                        textField.setText("Invalid");
                     }
                 }
                 inlabel += " " + str + " ";

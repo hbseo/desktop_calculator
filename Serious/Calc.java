@@ -90,59 +90,67 @@ public class Calc{
      * @param postfixExp String
      * @return (Double)stk.peek()
      */
-    public Double result(String postfixExp){
+    public Double result(String postfixExp) {
         System.out.println(postfixExp);
         Double value, buffer;
         String temp = new String();
         ArrayStack stk = new ArrayStack();
-        for(int i=0;i<postfixExp.length();i++){
-            switch(postfixExp.charAt(i)){
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                case '.':
-                    //여기까지는 아직 공백을 만나지 않았으므로 수식의 끝이 아니다.
-                    temp = temp.concat(postfixExp.charAt(i)+"");
-                    break;
-                case ' ':
-                    //공백을 만나서야 비로서 수식을 스택에 넣는다.
-                    //공백을 만나기전에 수식이 여러개 있었다면 temp에 붙어서 저장되어 있다.
-                    stk.push(new Double(temp));
-                    temp = new String();
-                    break;
-                case '+':
-                    value = new Double(((Double)stk.pop()).doubleValue() + ((Double)stk.pop()).doubleValue());
-                    stk.push(value);
-                    break;
-                case '-':
-                    buffer = new Double(((Double)stk.pop()).doubleValue());
-                    value = new Double(((Double)stk.pop()).doubleValue() - buffer.doubleValue());
-                    stk.push(value);
-                    break;
-                case 'x':
-                    value = new Double(((Double)stk.pop()).doubleValue() * ((Double)stk.pop()).doubleValue());
-                    stk.push(value);
-                    break;
-                case '/':
-                    buffer = new Double(((Double)stk.pop()).doubleValue());
-                    value = new Double(((Double)stk.pop()).doubleValue() / buffer.doubleValue());
-                    stk.push(value);
-                    break;
-                case 'm':
-                    buffer = new Double(((Double)stk.pop()).doubleValue());
-                    value = new Double(((Double) stk.pop()).doubleValue() % buffer.doubleValue());
-                    stk.push(value);
+        try {
+            for (int i = 0; i < postfixExp.length(); i++) {
+                switch (postfixExp.charAt(i)) {
+                    case '0':
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
+                    case '6':
+                    case '7':
+                    case '8':
+                    case '9':
+                    case '.':
+                        //여기까지는 아직 공백을 만나지 않았으므로 수식의 끝이 아니다.
+                        temp = temp.concat(postfixExp.charAt(i) + "");
+                        break;
+                    case ' ':
+                        //공백을 만나서야 비로서 수식을 스택에 넣는다.
+                        //공백을 만나기전에 수식이 여러개 있었다면 temp에 붙어서 저장되어 있다.
+                        stk.push(new Double(temp));
+                        temp = new String();
+                        break;
+                    case '+':
+                        value = new Double(((Double) stk.pop()).doubleValue() + ((Double) stk.pop()).doubleValue());
+                        stk.push(value);
+                        break;
+                    case '-':
+                        buffer = new Double(((Double) stk.pop()).doubleValue());
+                        value = new Double(((Double) stk.pop()).doubleValue() - buffer.doubleValue());
+                        stk.push(value);
+                        break;
+                    case 'x':
+                        value = new Double(((Double) stk.pop()).doubleValue() * ((Double) stk.pop()).doubleValue());
+                        stk.push(value);
+                        break;
+                    case '/':
+                        buffer = new Double(((Double) stk.pop()).doubleValue());
+                        value = new Double(((Double) stk.pop()).doubleValue() / buffer.doubleValue());
+                        stk.push(value);
+                        break;
+                    case 'm':
+                        buffer = new Double(((Double) stk.pop()).doubleValue());
+                        value = new Double(((Double) stk.pop()).doubleValue() % buffer.doubleValue());
+                        stk.push(value);
                 }
             }
-            return (Double)stk.peek();
+        } catch (Exception e) {
+            return null;
         }
+        try {
+            return (Double) stk.peek();
+        }catch (Exception e) {
+            return null;
+        }
+    }
 
 
       //------------------------------------------
