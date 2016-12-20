@@ -50,6 +50,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 # **Next Version**
 
 - **Bug Fix** : We will fix hidden bugs
+- **Add Menu Bar** : Add Menu Bar in Serious
 
 
 # **Execute**
@@ -59,7 +60,7 @@ Then open 'Serious.jar'.
 And launch Serious.class  
 
 
-# **Bugs & Feedback**
+# **Feedback**
 
 To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
