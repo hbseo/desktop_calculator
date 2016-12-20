@@ -1,4 +1,0 @@
-Calculator.MainActivity, Calculator;md58ad980f9ccdca464748eb55e3c3d492a.MainActivity
-Calculator.MainActivity, Calculator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58ad980f9ccdca464748eb55e3c3d492a.MainActivity
-Calculator.MainActivity;md58ad980f9ccdca464748eb55e3c3d492a.MainActivity
-calculator.MainActivity;md58ad980f9ccdca464748eb55e3c3d492a.MainActivity
