@@ -50,6 +50,7 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 # **Next Version**
 
 - **Bug Fix** : We will fix hidden bugs
+- **Add Menu Bar** : Add Menu Bar in Serious
 
 
 # **Execute**
