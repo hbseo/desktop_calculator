@@ -60,7 +60,7 @@ Then open 'Serious.jar'.
 And launch Serious.class  
 
 
-# **Bugs & Feedback**
+# **Feedback**
 
 To report bugs, please create a GitHub issue.
 Email : gusqja8753@gmail.com
