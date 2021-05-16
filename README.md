@@ -6,12 +6,12 @@ is a calculator with a few simple functions, such as plus, minus, times, divided
 [![License](https://img.shields.io/badge/license-GPLv3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 ![Laguage](https://img.shields.io/badge/language-JAVA-red.svg)
 # **Team** - Simpsons
--  **alchon** : Hyeon Beom Seo  
+-  **HyeonBeomSeo** : Hyeon Beom Seo  
 - **hellogaon** : Sung Woo Park  
 
 # **Role**
 #### **Collaboration** : Development, Management, Maintain, Reading
-- **alchon** :  Design, Documentation
+- **HyeonBeomSeo** :  Design, Documentation
 - **hellogaon** :  Translation, Algorithm  
 
  
@@ -62,7 +62,6 @@ And launch Serious.class
 
 # **Feedback**
 
-To report bugs, please create a GitHub issue.
-Email : gusqja8753@gmail.com
+To report bugs, please create a GitHub [issue](https://github.com/hbseo/desktop_calculator/issues).
 
 ----------------------
